@@ -73,7 +73,8 @@ func GetTopHits(c *fiber.Ctx) error {
 		})
 	}
 
-	if take > 10 || take <= 0 {
+	/* Don't let requester go over 10 or under 0 */
+	if take > 10 || take < 0 {
 		take = 5
 	}
 
