@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: hits
+      POSTGRES_PASSWORD: hits
+      POSTGRES_DB: hitsdb
+    ports:
+      - "5432:5432"
