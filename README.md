@@ -1,0 +1,5 @@
+# hits
+
+## Maintainers
+- @heybereket
+- @Looskie
