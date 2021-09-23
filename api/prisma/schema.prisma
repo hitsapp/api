@@ -1,0 +1,15 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  package  = db
+}
+
+generator client {
+  provider        = "go run github.com/prisma/prisma-client-go"
+  previewFeatures = ["referentialActions"]
+}
+
+model Hits {
+  url  String @id @unique
+  hits Int    @default(0)
+}
