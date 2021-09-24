@@ -18,6 +18,7 @@ func Introduction(c *fiber.Ctx) error {
 
 func GetHits(c *fiber.Ctx) error {
 	var url = c.Params("url")
+	var svg, _ = strconv.ParseBool(c.Query("svg"))
 	var client = GetPrisma()
 	var ctx = context.Background()
 
@@ -48,9 +49,23 @@ func GetHits(c *fiber.Ctx) error {
 		})
 	}
 
+	if svg {
+
+		/*
+			Put all the svg stuff in here
+			We will want something like this https://github.com/ajstarks/svgo
+			just go get github.com/ajstarks/svgo if you want to use this one
+		*/
+
+		return c.JSON(Response{
+			Success: false,
+			Message: "Mate",
+		})
+	}
+
 	return c.JSON(Response{
 		Success: true,
-		Message: url,
+		Message: "Successfully requested hit!",
 		Data:    hit,
 	})
 }
