@@ -9,3 +9,7 @@ services:
       POSTGRES_DB: hitsdb
     ports:
       - "5432:5432"
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
