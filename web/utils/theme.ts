@@ -19,7 +19,7 @@ declare module "styled-components" {
 export const darkTheme: DefaultTheme = {
   layoutDarkest: "#202225",
   layoutDark: "#2F3136",
-  layoutLittleLessDark: "#292B2F",
+  layoutLittleLessDark: "#36383E",
 
   textLightest: "#FFFFFF",
   textLight: "#dedede",
