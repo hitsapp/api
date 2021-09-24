@@ -1,7 +1,16 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import type { AppProps } from "next/app";
+import { SWRConfig } from "swr";
+import { fetcher } from "../utils";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <SWRConfig
+      value={{
+        fetcher: fetcher,
+      }}
+    >
+      <Component {...pageProps} />
+    </SWRConfig>
+  );
 }
-export default MyApp
+export default MyApp;
