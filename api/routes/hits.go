@@ -6,7 +6,6 @@ import (
 	"hits/api/utils"
 	. "hits/api/utils"
 	"strconv"
-
 	"github.com/gofiber/fiber/v2"
 )
 
