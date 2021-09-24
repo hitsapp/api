@@ -1,2 +1,2 @@
 export const BASE_URI = "http://localhost";
-export const FULL_URI_V1 = BASE_URI + "/v1";
+export const API_URL = `${BASE_URI}/v1`;

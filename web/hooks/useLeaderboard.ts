@@ -1,9 +1,9 @@
 import useSWR from "swr";
 import { Hit } from "../types";
-import { FULL_URI_V1 } from "../utils";
+import { API_URL } from "../utils";
 
 export const useLeaderboard = () => {
-  const { data, error } = useSWR(`${FULL_URI_V1}/top`);
+  const { data, error } = useSWR(`${API_URL}/top`);
   const hits: Array<Hit> = data?.data;
 
   return {

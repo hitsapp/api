@@ -1,6 +1,6 @@
 # hits
 
-## Getting started
+## Getting Started
 ```bash
 # Copy all .env.example files into your .env file
 
@@ -8,7 +8,7 @@
 $ yarn
 
 # Run Docker Compose 
-$ docker-compose up -d`
+$ docker-compose up -d
 
 $ cd api/prisma && go run github.com/prisma/prisma-client-go db push
 
