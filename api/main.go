@@ -13,6 +13,13 @@ import (
 	"github.com/joho/godotenv"
 )
 
+func Main(c *fiber.Ctx) error {
+	return c.JSON(Response{
+		Success: true,
+		Message: "Welcome to hits API V1!",
+	})
+}
+
 func setupRoutes(app *fiber.App) {
 	app.Get("/", func(c *fiber.Ctx) error {
 		return c.JSON(Response{
@@ -23,8 +30,8 @@ func setupRoutes(app *fiber.App) {
 
 	/* V1 */
 	v1 := app.Group("/v1")
-	v1.Get("/", Introduction)
-	v1.Get("/topHits", GetTopHits)
+	v1.Get("/", Main)
+	v1.Get("/top", GetTopHits)
 	v1.Get("/hits/:url", GetHits)
 }
 
