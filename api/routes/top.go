@@ -3,13 +3,13 @@ package routes
 import (
 	"context"
 	"hits/api/prisma/db"
-	"hits/api/utils"
-	"strconv"
+	. "hits/api/utils"
+
 	"github.com/gofiber/fiber/v2"
 )
 
 func GetTopHits(c *fiber.Ctx) error {
-	var client = utils.GetPrisma()
+	var client = GetPrisma()
 	var ctx = context.Background()
 
 	hits, err := client.Hits.FindMany().OrderBy(
