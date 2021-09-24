@@ -10,7 +10,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     background: ${({ theme }) => theme.layoutDarkest};
     color: ${({ theme }) => theme.textLightest};
-    font-family: 'Manrope', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 500;
   }
 `;
