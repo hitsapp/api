@@ -3,7 +3,6 @@ import { useLeaderboard } from "../hooks/useLeaderboard";
 export const Leaderboard = (): JSX.Element => {
   const { hits, isError, isLoading } = useLeaderboard();
 
-  console.log(isError);
   return (
     <div>
       <h1>Leaderboard</h1>
