@@ -4,7 +4,6 @@ declare module "styled-components" {
     layoutDarkest: string;
     layoutDark: string;
     layoutLittleLessDark: string;
-    layoutLightestOfTheBunch: string;
 
     textLightest: string;
     textLight: string;
@@ -18,15 +17,14 @@ declare module "styled-components" {
 }
 
 export const darkTheme: DefaultTheme = {
-  layoutDarkest: "#121212",
-  layoutDark: "#191919",
-  layoutLittleLessDark: "#1e1e1e",
-  layoutLightestOfTheBunch: "#242424",
+  layoutDarkest: "#202225",
+  layoutDark: "#2F3136",
+  layoutLittleLessDark: "#292B2F",
 
-  textLightest: "#ffffff",
+  textLightest: "#FFFFFF",
   textLight: "#dedede",
   textDarker: "#acacac",
-  textDarkest: "#3a3a3a",
+  textDarkest: "#9E9E9E",
 
   success: "#2fd671",
   error: "#ff4f4f",

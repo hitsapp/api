@@ -8,8 +8,8 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background: ${({ theme }) => theme.layoutDark};
-    color: ${({ theme }) => theme.textLight};
+    background: ${({ theme }) => theme.layoutDarkest};
+    color: ${({ theme }) => theme.textLightest};
     font-family: 'Manrope', sans-serif;
     font-weight: 500;
   }

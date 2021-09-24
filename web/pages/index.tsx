@@ -1,10 +1,10 @@
 import type { NextPage } from "next";
-import { Leaderboard } from "../components";
+import { Leaderboard, Nav } from "../components";
 
 const Home: NextPage = () => {
   return (
     <>
-      <h1>hey</h1>
+      <Nav />
       <Leaderboard />
     </>
   );
