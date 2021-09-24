@@ -3,23 +3,16 @@ package main
 import (
 	"hits/api/prisma/db"
 	"hits/api/utils"
-	. "hits/api/v1"
+	. "hits/api/utils"
+	. "hits/api/routes"
 	"log"
 	"os"
-
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/gofiber/fiber/v2/middleware/recover"
 	"github.com/joho/godotenv"
 )
-
-func Main(c *fiber.Ctx) error {
-	return c.JSON(Response{
-		Success: true,
-		Message: "Welcome to hits API V1!",
-	})
-}
 
 func setupRoutes(app *fiber.App) {
 	app.Get("/", func(c *fiber.Ctx) error {
@@ -31,7 +24,6 @@ func setupRoutes(app *fiber.App) {
 
 	/* V1 */
 	v1 := app.Group("/v1")
-	v1.Get("/", Main)
 	v1.Get("/top", utils.RateLimit(50), utils.CacheRoute(), GetTopHits)
 	v1.Get("/hits/:url", utils.RateLimit(15), GetHits)
 }

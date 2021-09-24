@@ -1,14 +1,20 @@
 # hits
 
-## Run dev environment
-- Clone the repo
-- Type `yarn` or `npm i` 
-- Type `docker-compose up -d`
-- Remove `-example` out of all the `.env-example` files.
-- Type `cd api/prisma/ && go run github.com/prisma/prisma-client-go db push`
-- Type `cd api`
-- Type `go run main.go`
-- You're off to the races!
+## Getting Started
+```bash
+# Copy all .env.example files into your .env file
+
+# Install dependencies
+$ yarn
+
+# Run Docker Compose 
+$ docker-compose up -d
+
+$ cd api/prisma && go run github.com/prisma/prisma-client-go db push
+
+# Start Go API
+$ cd api && go run main.go
+```
 
 ## Stack
 ```bash

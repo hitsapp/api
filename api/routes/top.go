@@ -1,10 +1,10 @@
-package v1
+package routes
 
 import (
 	"context"
 	"hits/api/prisma/db"
 	"hits/api/utils"
-
+	"strconv"
 	"github.com/gofiber/fiber/v2"
 )
 
