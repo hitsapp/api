@@ -10,6 +10,18 @@
 - Type `go run main.go`
 - You're off to the races!
 
+## Stack
+```bash
+Frontend:
+- Next.js
+- TypeScript
+
+Backend:
+- Go
+- Fiber
+- Prisma
+```
+
 ## Maintainers
 - @heybereket
 - @Looskie
