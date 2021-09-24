@@ -3,7 +3,7 @@ package v1
 import (
 	"context"
 	"hits/api/prisma/db"
-	. "hits/api/utils"
+	"hits/api/utils"
 	"strconv"
 
 	"github.com/gofiber/fiber/v2"
@@ -12,7 +12,7 @@ import (
 func GetHits(c *fiber.Ctx) error {
 	var url = c.Params("url")
 	var svg, _ = strconv.ParseBool(c.Query("svg"))
-	var client = GetPrisma()
+	var client = utils.GetPrisma()
 	var ctx = context.Background()
 
 	hit, err := client.Hits.FindUnique(

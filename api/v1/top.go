@@ -3,7 +3,7 @@ package v1
 import (
 	"context"
 	"hits/api/prisma/db"
-	. "hits/api/utils"
+	"hits/api/utils"
 	"strconv"
 
 	"github.com/gofiber/fiber/v2"
@@ -11,8 +11,10 @@ import (
 
 func GetTopHits(c *fiber.Ctx) error {
 	var reqTake = c.Query("take")
-	var client = GetPrisma()
+	var client = utils.GetPrisma()
 	var ctx = context.Background()
+
+	println("hey!")
 
 	/* If requester didn't put take in request */
 	if len(reqTake) <= 0 {
