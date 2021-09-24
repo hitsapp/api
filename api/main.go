@@ -3,7 +3,8 @@ package main
 import (
 	"hits/api/prisma/db"
 	"hits/api/utils"
-	. "hits/api/v1"
+	. "hits/api/utils"
+	. "hits/api/routes"
 	"log"
 	"os"
 

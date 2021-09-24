@@ -7,12 +7,6 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/limiter"
 )
 
-type Response struct {
-	Success bool        `json:"success"`
-	Message string      `json:"message,omitempty"`
-	Data    interface{} `json:"data,omitempty"`
-}
-
 func RateLimit(amount int) fiber.Handler {
 	return limiter.New(limiter.Config{
 		Max:        amount,
