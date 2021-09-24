@@ -3,15 +3,12 @@ package main
 import (
 	"hits/api/prisma/db"
 	"hits/api/utils"
-	. "hits/api/utils"
 	. "hits/api/v1"
 	"log"
 	"os"
-	"time"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
-	"github.com/gofiber/fiber/v2/middleware/limiter"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/gofiber/fiber/v2/middleware/recover"
 	"github.com/joho/godotenv"
@@ -35,8 +32,8 @@ func setupRoutes(app *fiber.App) {
 	/* V1 */
 	v1 := app.Group("/v1")
 	v1.Get("/", Main)
-	v1.Get("/top", GetTopHits)
-	v1.Get("/hits/:url", GetHits)
+	v1.Get("/top", utils.RateLimit(50), utils.CacheRoute(), GetTopHits)
+	v1.Get("/hits/:url", utils.RateLimit(15), GetHits)
 }
 
 func main() {
@@ -63,30 +60,18 @@ func main() {
 		AllowOrigins: "*",
 	}))
 
-	app.Use(limiter.New(limiter.Config{
-		Max:        15,
-		Expiration: 1 * time.Minute,
-		LimitReached: func(c *fiber.Ctx) error {
-			return c.JSON(Response{
-				Success: false,
-				Message: "Ratelimit exceeded. Try again in 1 minute.",
-			})
-		},
-		Storage: utils.GetRedis(),
-	}))
-
 	setupRoutes(app)
 
-	if GetPrisma() == nil {
-		SetGlobalDb(db.NewClient())
+	if utils.GetPrisma() == nil {
+		utils.SetGlobalDb(db.NewClient())
 	}
 
-	if err := GetPrisma().Prisma.Connect(); err != nil {
+	if err := utils.GetPrisma().Prisma.Connect(); err != nil {
 		panic(err)
 	}
 
 	defer func() {
-		if err := GetPrisma().Prisma.Disconnect(); err != nil {
+		if err := utils.GetPrisma().Prisma.Disconnect(); err != nil {
 			panic(err)
 		}
 	}()
