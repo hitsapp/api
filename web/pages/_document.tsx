@@ -10,11 +10,11 @@ import { ServerStyleSheet } from "styled-components";
 
 const Page = () => {
   return (
-    <Html lang='en'>
+    <Html lang="en">
       <Head>
-        <meta charSet='UTF-8' />
+        <meta charSet="UTF-8" />
         <title>Hits</title>
-        <meta name='description' content='Count your hits!' />
+        <meta name="description" content="Count your hits!" />
       </Head>
       <body>
         <Main />
