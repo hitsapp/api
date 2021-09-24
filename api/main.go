@@ -2,13 +2,16 @@ package main
 
 import (
 	"hits/api/prisma/db"
+	"hits/api/utils"
 	. "hits/api/utils"
 	. "hits/api/v1"
 	"log"
 	"os"
+	"time"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
+	"github.com/gofiber/fiber/v2/middleware/limiter"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/gofiber/fiber/v2/middleware/recover"
 	"github.com/joho/godotenv"
@@ -42,8 +45,8 @@ func main() {
 	app := fiber.New(fiber.Config{
 		CaseSensitive: false,
 		StrictRouting: true,
-		ServerHeader:  "HITS API",
-		AppName:       "HITS API v1.0",
+		ServerHeader:  "Hits API",
+		AppName:       "Hits API v1.0",
 		BodyLimit:     1024 * 1024,
 	})
 
@@ -58,6 +61,18 @@ func main() {
 
 	app.Use(cors.New(cors.Config{
 		AllowOrigins: "*",
+	}))
+
+	app.Use(limiter.New(limiter.Config{
+		Max:        15,
+		Expiration: 1 * time.Minute,
+		LimitReached: func(c *fiber.Ctx) error {
+			return c.JSON(Response{
+				Success: false,
+				Message: "Ratelimit exceeded. Try again in 1 minute.",
+			})
+		},
+		Storage: utils.GetRedis(),
 	}))
 
 	setupRoutes(app)
