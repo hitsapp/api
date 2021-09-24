@@ -34,7 +34,7 @@ func GetHits(c *fiber.Ctx) error {
 		).Exec(ctx)
 
 		if createHitError != nil {
-			return c.JSON(Response{
+			return c.Status(500).JSON(Response{
 				Success: false,
 				Message: "An internal server error occurred!",
 			})
@@ -43,13 +43,13 @@ func GetHits(c *fiber.Ctx) error {
 		hit = createHit
 
 	} else if err != nil {
-		return c.JSON(Response{
+		return c.Status(500).JSON(Response{
 			Success: false,
 			Message: "An internal server error occurred!",
 		})
 	}
 
-	if svg {
+	if svg == true {
 
 		/*
 			Put all the svg stuff in here
