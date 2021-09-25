@@ -8,6 +8,9 @@ import (
 
 func RateLimit(amount int) fiber.Handler {
 	return limiter.New(limiter.Config{
+		Next: func(c *fiber.Ctx) bool {
+			return c.IP() == "127.0.0.1" || c.IP() == "localhost"
+		},
 		Max:        amount,
 		Expiration: 1 * time.Minute,
 		LimitReached: func(c *fiber.Ctx) error {
