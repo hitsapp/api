@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import { Leaderboard, Nav, Subtitle, Title } from "../components";
 import styled from "styled-components";
+import { useState } from "react";
 
 const Container = styled.div`
   width: 80%;
@@ -35,7 +36,32 @@ const RightFlexContainers = styled.div`
   }
 `;
 
+const Input = styled.input`
+  width: 100%;
+  max-width: 80%;
+  margin: 15px 0;
+  padding: 10px 10px;
+  font-size: 1em;
+  border: none;
+  border-radius: 8px;
+  color: ${({ theme }) => theme.textLight};
+  background: ${({ theme }) => theme.layoutLittleLessDark};
+  outline: 0;
+  box-shadow: 0px 0px 12px 0px rgb(0 0 0 / 16%);
+  transition: all 0.2s ease-in-out;
+
+  &:focus {
+    box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.25);
+  }
+
+  &:focus::placeholder {
+    color: ${({ theme }) => theme.textLight}9d;
+  }
+`;
+
 const Home: NextPage = () => {
+  const [URL, setURL] = useState("ENTER_A_URL");
+
   return (
     <Container>
       <Nav />
@@ -45,10 +71,23 @@ const Home: NextPage = () => {
           <RightFlexContainers>
             <Title>Create a Hit</Title>
             <Subtitle>Generate a SVG Image for your site</Subtitle>
+            <Input
+              style={{ maxWidth: 300 }}
+              placeholder="Enter your URL"
+              onChange={(e) => setURL(e.target.value)}
+            />
           </RightFlexContainers>
           <RightFlexContainers>
             <Title>Copy URL</Title>
             <Subtitle>Choose from the following:</Subtitle>
+            <Input
+              value={`<img src=”https://hits.dev/hits?url=${URL}`}
+              disabled={true}
+            />
+            <Input
+              value={`[Hits](https://hits.dev/hits?url=${URL})`}
+              disabled={true}
+            />
           </RightFlexContainers>
         </RightContainer>
       </MainContent>
