@@ -11,7 +11,7 @@ func CacheRoute() fiber.Handler {
 		Next: func(c *fiber.Ctx) bool {
 			return c.Query("refresh") == "true"
 		},
-		Expiration:   10 * time.Minute,
+		Expiration:   5 * time.Minute,
 		CacheControl: true,
 		Storage:      GetRedis(),
 	})
