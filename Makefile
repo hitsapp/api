@@ -12,4 +12,4 @@ web_dev:
 
 build:
 	cd api && go build
-	cd web && go build
+	cd web && yarn build
