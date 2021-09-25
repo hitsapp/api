@@ -1,1 +1,1 @@
-web: hits-api
+web: bin/golang-heroku
