@@ -16,6 +16,7 @@ func GetHits(c *fiber.Ctx) error {
 	var client = utils.GetPrisma()
 	var ctx = context.Background()
 	const regex = `https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)`
+
 	match, _ := regexp.MatchString(regex, url)
 
 	if !match {
