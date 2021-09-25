@@ -1,1 +1,1 @@
-web: bin/golang-heroku
+web: go run
