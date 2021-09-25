@@ -9,7 +9,7 @@ import (
 func CacheRoute() fiber.Handler {
 	return cache.New(cache.Config{
 		Next: func(c *fiber.Ctx) bool {
-			return c.Query("refresh") == "true"
+			return c.IP() == "127.0.0.1" || c.IP() == "localhost"
 		},
 		Expiration:   5 * time.Minute,
 		CacheControl: true,
