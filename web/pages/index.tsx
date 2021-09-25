@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { Leaderboard, Nav, Title } from "../components";
+import { Leaderboard, Nav, Subtitle, Title } from "../components";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -18,16 +18,21 @@ const MainContent = styled.div`
 const RightContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 50px;
+  margin-left: 20px;
+  width: 100%;
 `;
 
 const RightFlexContainers = styled.div`
-  margin: 10px 0;
+  margin: 0;
   padding: 24px 24px;
   flex: 1 1;
   border-radius: 8px;
   background: ${({ theme }) => theme.layoutDark};
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+
+  &:last-of-type {
+    margin-top: 20px;
+  }
 `;
 
 const Home: NextPage = () => {
@@ -39,9 +44,11 @@ const Home: NextPage = () => {
         <RightContainer>
           <RightFlexContainers>
             <Title>Create a Hit</Title>
+            <Subtitle>Generate a SVG Image for your site</Subtitle>
           </RightFlexContainers>
           <RightFlexContainers>
             <Title>Copy URL</Title>
+            <Subtitle>Choose from the following:</Subtitle>
           </RightFlexContainers>
         </RightContainer>
       </MainContent>
