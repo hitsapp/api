@@ -1,6 +1,7 @@
 import { useLeaderboard } from "../hooks/useLeaderboard";
 import styled from "styled-components";
 import { Subtitle, Title } from ".";
+import Skeleton from "react-loading-skeleton";
 
 const Container = styled.div`
   padding: 24px 24px;
@@ -82,7 +83,33 @@ export const Leaderboard = () => {
       <Title>Leaderboard</Title>
       <Subtitle>Top 10</Subtitle>
       <br />
-      {isLoading && <span>Loading hits</span>}
+      {isLoading && (
+        <List>
+          {[...new Array(10)].map((_, i) => {
+            return (
+              <ListItem style={{ margin: "8px 0px" }} key={i + 1}>
+                <Place>{i + 1}</Place>
+                <Skeleton
+                  style={{ marginLeft: 25, borderRadius: 10 }}
+                  width={55}
+                  height={55}
+                />
+                <ListItemInfo>
+                  <Skeleton width={140} height={15} />
+                  <HitCountSpan>
+                    <Skeleton width={30} height={15} />
+                    <Skeleton
+                      style={{ marginLeft: 10 }}
+                      width={30}
+                      height={15}
+                    />
+                  </HitCountSpan>
+                </ListItemInfo>
+              </ListItem>
+            );
+          })}
+        </List>
+      )}
       {isError && <span>Error loading hits!</span>}
 
       {hits && hits.length > 0 ? (

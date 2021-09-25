@@ -2,6 +2,7 @@ import type { AppProps } from "next/app";
 import { SWRConfig } from "swr";
 import { fetcher, darkTheme } from "../utils";
 import { ThemeProvider, createGlobalStyle } from "styled-components";
+import { SkeletonTheme } from "react-loading-skeleton";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -19,13 +20,18 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={darkTheme}>
       <GlobalStyle />
-      <SWRConfig
-        value={{
-          fetcher: fetcher,
-        }}
+      <SkeletonTheme
+        color={darkTheme.layoutDark}
+        highlightColor={darkTheme.layoutLittleLessDark}
       >
-        <Component {...pageProps} />
-      </SWRConfig>
+        <SWRConfig
+          value={{
+            fetcher: fetcher,
+          }}
+        >
+          <Component {...pageProps} />
+        </SWRConfig>
+      </SkeletonTheme>
     </ThemeProvider>
   );
 }
