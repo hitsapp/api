@@ -94,7 +94,7 @@ export const Leaderboard = () => {
                 <Hit>
                   <HitIcon></HitIcon>
                   <ListItemInfo>
-                    <Link href={`https://${hit.url}/`}>https://{hit.url}/</Link>
+                    <Link href={hit.url} target="_blank">{hit.url}</Link>
                     <HitCountSpan>
                       {hit.hits} <HitSpan>hits</HitSpan>
                     </HitCountSpan>

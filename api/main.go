@@ -25,7 +25,7 @@ func setupRoutes(app *fiber.App) {
 	/* V1 */
 	v1 := app.Group("/v1")
 	v1.Get("/top", utils.RateLimit(50), utils.CacheRoute(), GetTopHits)
-	v1.Get("/hits/:url", utils.RateLimit(15), GetHits)
+	v1.Get("/hits", utils.RateLimit(15), GetHits)
 }
 
 func main() {

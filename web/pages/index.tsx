@@ -38,10 +38,10 @@ const Home: NextPage = () => {
         <Leaderboard />
         <RightContainer>
           <RightFlexContainers>
-            <Title>test</Title>
+            <Title>Create a Hit</Title>
           </RightFlexContainers>
           <RightFlexContainers>
-            <Title>test</Title>
+            <Title>Copy URL</Title>
           </RightFlexContainers>
         </RightContainer>
       </MainContent>

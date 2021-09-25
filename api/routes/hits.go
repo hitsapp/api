@@ -2,6 +2,7 @@ package routes
 
 import (
 	"context"
+	"regexp"
 	"hits/api/prisma/db"
 	"hits/api/utils"
 	. "hits/api/utils"
@@ -10,10 +11,19 @@ import (
 )
 
 func GetHits(c *fiber.Ctx) error {
-	var url = c.Params("url")
+	var url = c.Query("url")
 	var svg, _ = strconv.ParseBool(c.Query("svg"))
 	var client = utils.GetPrisma()
 	var ctx = context.Background()
+	const regex = `https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)`
+	match, _ := regexp.MatchString(regex, url)
+
+	if (!match) {
+		return c.Status(400).JSON(Response{
+			Success: false,
+			Message: "Invalid URL",
+		})
+	}
 
 	hit, err := client.Hits.FindUnique(
 		db.Hits.URL.Equals(url),
