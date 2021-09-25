@@ -1,1 +1,1 @@
-web: go run
+web: cd api && go build && go run api
