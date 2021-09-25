@@ -60,7 +60,7 @@ const Input = styled.input`
 `;
 
 const Home: NextPage = () => {
-  const [URL, setURL] = useState("ENTER_A_URL");
+  const [URL, setURL] = useState("");
 
   return (
     <Container>
@@ -70,7 +70,7 @@ const Home: NextPage = () => {
         <RightContainer>
           <RightFlexContainers>
             <Title>Create a Hit</Title>
-            <Subtitle>Generate a SVG Image for your site</Subtitle>
+            <Subtitle>Generate a SVG Image for your link</Subtitle>
             <Input
               style={{ maxWidth: 300 }}
               placeholder="Enter your URL"
@@ -81,11 +81,11 @@ const Home: NextPage = () => {
             <Title>Copy URL</Title>
             <Subtitle>Choose from the following:</Subtitle>
             <Input
-              value={`<img src=”https://hits.dev/hits?url=${URL}`}
+              value={`<img src="https://hits.link/hits?url=${URL}" />`}
               disabled={true}
             />
             <Input
-              value={`[Hits](https://hits.dev/hits?url=${URL})`}
+              value={`[Hits](https://hits.link/hits?url=${URL})`}
               disabled={true}
             />
           </RightFlexContainers>
