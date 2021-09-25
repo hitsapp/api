@@ -1,17 +1,17 @@
 package main
 
 import (
-	"hits/api/prisma/db"
-	"hits/api/utils"
-	. "hits/api/utils"
-	. "hits/api/routes"
-	"log"
-	"os"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/logger"
 	"github.com/gofiber/fiber/v2/middleware/recover"
 	"github.com/joho/godotenv"
+	"hits/api/prisma/db"
+	. "hits/api/v1"
+	"hits/api/utils"
+	. "hits/api/utils"
+	"log"
+	"os"
 )
 
 func setupRoutes(app *fiber.App) {
@@ -29,7 +29,7 @@ func setupRoutes(app *fiber.App) {
 }
 
 func main() {
-	godotenv.Load()
+	_ = godotenv.Load()
 
 	app := fiber.New(fiber.Config{
 		CaseSensitive: false,

@@ -1,8 +1,8 @@
 package utils
 
 import (
-	"os"
 	"github.com/gofiber/storage/redis"
+	"os"
 )
 
 func GetRedis() *redis.Storage {

@@ -1,13 +1,13 @@
-package routes
+package v1
 
 import (
 	"context"
-	"github.com/gofiber/fiber/v2"
+	"regexp"
 	"hits/api/prisma/db"
 	"hits/api/utils"
 	. "hits/api/utils"
-	"regexp"
 	"strconv"
+	"github.com/gofiber/fiber/v2"
 )
 
 func GetHits(c *fiber.Ctx) error {
@@ -16,10 +16,9 @@ func GetHits(c *fiber.Ctx) error {
 	var client = utils.GetPrisma()
 	var ctx = context.Background()
 	const regex = `https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)`
-
 	match, _ := regexp.MatchString(regex, url)
 
-	if !match {
+	if (!match) {
 		return c.Status(400).JSON(Response{
 			Success: false,
 			Message: "Invalid URL",
