@@ -1,4 +1,10 @@
-module.exports = {
+const bundleAnalyzer = require('@next/bundle-analyzer');
+
+const withBundleAnalyzer = bundleAnalyzer({
+  enabled: process.env.ANALYZE === 'true',
+});
+
+module.exports = withBundleAnalyzer({
   poweredByHeader: false,
   reactStrictMode: true,
   headers() {
@@ -44,4 +50,4 @@ module.exports = {
       },
     ];
   },
-}
+})
