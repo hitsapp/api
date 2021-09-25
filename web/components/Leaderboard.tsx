@@ -4,7 +4,7 @@ import { Subtitle, Title } from ".";
 
 const Container = styled.div`
   padding: 24px 24px;
-  max-width: 410px;
+  width: 410px;
   background: ${({ theme }) => theme.layoutDark};
   border-radius: 8px;
   overflow-y: auto;
@@ -94,7 +94,9 @@ export const Leaderboard = () => {
                 <Hit>
                   <HitIcon></HitIcon>
                   <ListItemInfo>
-                    <Link href={hit.url} target="_blank">{hit.url}</Link>
+                    <Link href={hit.url} target="_blank">
+                      {hit.url}
+                    </Link>
                     <HitCountSpan>
                       {hit.hits} <HitSpan>hits</HitSpan>
                     </HitCountSpan>
@@ -105,7 +107,7 @@ export const Leaderboard = () => {
           })}
         </List>
       ) : (
-        <p>There are no hits yet!</p>
+        <p style={{ textAlign: "center" }}>There are no hits yet!</p>
       )}
     </Container>
   );

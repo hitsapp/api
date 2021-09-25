@@ -71,6 +71,7 @@ const Home: NextPage = () => {
           <RightFlexContainers>
             <Title>Create a Hit</Title>
             <Subtitle>Generate a SVG Image for your link</Subtitle>
+            <br />
             <Input
               style={{ maxWidth: 300 }}
               placeholder="Enter your URL"
@@ -80,6 +81,7 @@ const Home: NextPage = () => {
           <RightFlexContainers>
             <Title>Copy URL</Title>
             <Subtitle>Choose from the following:</Subtitle>
+            <br />
             <Input
               value={`<img src="https://hits.link/hits?url=${URL}" />`}
               disabled={true}
