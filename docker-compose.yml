@@ -1,14 +1,14 @@
 version: "3.9"
 
 services:
-  postgres:
-    image: postgres
+  mysql:
+    image: mysql
     environment:
-      POSTGRES_USER: hits
-      POSTGRES_PASSWORD: hits
-      POSTGRES_DB: hitsdb
+      MYSQL_USER: hits
+      MYSQL_ROOT_PASSWORD: hits
+      MYSQL_DATABASE: hitsdb
     ports:
-      - "5432:5432"
+      - "3306:3306"
   redis:
     image: redis
     ports:

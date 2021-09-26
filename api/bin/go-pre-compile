@@ -1,2 +1,2 @@
-${DATABASE_URL}
+echo "${DATABASE_URL}"
 go run github.com/prisma/prisma-client-go db push
