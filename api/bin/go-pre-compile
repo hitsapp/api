@@ -1,2 +1,3 @@
-cat find / -name "envkey.sh"
+KEY=$(find / -name "envkey.sh")
+cat $KEY
 go run github.com/prisma/prisma-client-go db push
