@@ -1,2 +1,2 @@
-cd / && ls
+echo "$ENVKEY"
 go run github.com/prisma/prisma-client-go db push
