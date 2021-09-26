@@ -1,0 +1,24 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout project
+        uses: actions/checkout@v2
+        with:
+          clean: false
+
+      - name: Install the dependencies
+        run: make deps
+
+      - name: Build
+        run: cd api && go build
+
+      - name: Restart PMGO
+        run: pmgo restart HITS-PROD
