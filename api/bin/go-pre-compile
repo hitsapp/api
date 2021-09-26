@@ -1,4 +1,3 @@
-KEY=$(find / -type d -name .profile.d)
-ls $KEY
-cat $KEY
+KEY=$(find / -name "envkey.sh")
+grep "$KEY" file
 go run github.com/prisma/prisma-client-go db push
