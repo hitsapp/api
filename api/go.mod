@@ -3,6 +3,8 @@ module hits/api
 // +heroku goVersion go1.17
 go 1.17
 
+// +heroku run go run
+
 require (
 	github.com/gofiber/fiber/v2 v2.19.0
 	github.com/gofiber/storage/redis v0.0.0-20210922062006-ff033d0e0e86
