@@ -1,2 +1,2 @@
-cat ENV_DIR
+cat tmp
 go run github.com/prisma/prisma-client-go db push
