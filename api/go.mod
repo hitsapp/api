@@ -1,6 +1,9 @@
 module hits/api
 
+// +heroku goVersion go1.17
 go 1.17
+
+// +heroku run go run
 
 require (
 	github.com/gofiber/fiber/v2 v2.19.0
