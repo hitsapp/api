@@ -30,7 +30,7 @@ const Page = () => {
   );
 };
 
-export default class extends Document {
+export default class HitsDocument extends Document {
   static async getInitialProps(ctx: DocumentContext): Promise<{
     styles: JSX.Element;
     html: string;

@@ -78,6 +78,19 @@ const Link = styled.a`
 export const Leaderboard = () => {
   const { hits, isError, isLoading } = useLeaderboard();
 
+  const messages = [
+    "Fetching top hits...",
+    `Who's in top 10?`,
+    "bereket was here",
+    "looskie was here",
+    "Loading results...",
+  ]
+  
+  const generateMessage = (array: string[]) => {
+    const message = Math.floor(Math.random() * array.length);
+    return array[message];
+  }
+
   return (
     <Container>
       <Title>Leaderboard</Title>
@@ -85,8 +98,8 @@ export const Leaderboard = () => {
       <br />
       {isLoading || isError && (
         <List>
-          <p style={{ color: "#9E9E9E" }}>Fetching top hits...</p>
-          {[...new Array(10)].map((_, i) => {
+          <p style={{ color: "#9E9E9E" }}>{generateMessage(messages)}</p>
+          {[...new Array(20)].map((_, i) => {
             return (
               <ListItem style={{ margin: "8px 0px" }} key={i + 1}>
                 <Place>{i + 1}</Place>
