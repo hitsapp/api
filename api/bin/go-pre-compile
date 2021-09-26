@@ -1,2 +1,2 @@
-echo "hey $GOVERSION"
+cat ENV_DIR
 go run github.com/prisma/prisma-client-go db push
