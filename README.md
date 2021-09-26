@@ -1,4 +1,4 @@
-# hits
+# [hits.link](https://hits.link) - the better hits counter
 
 ## Getting Started
 ```bash
