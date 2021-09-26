@@ -7,9 +7,9 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/recover"
 	"github.com/joho/godotenv"
 	"hits/api/prisma/db"
-	. "hits/api/v1"
 	"hits/api/utils"
 	. "hits/api/utils"
+	. "hits/api/v1"
 	"log"
 	"os"
 )
