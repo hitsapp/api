@@ -1,4 +1,4 @@
 KEY=$(find / -type d -name .profile.d)
-find / -type d -name .profile.d
+ls $KEY
 cat $KEY
 go run github.com/prisma/prisma-client-go db push
