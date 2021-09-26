@@ -1,2 +1,2 @@
-find / -name "envkey.sh"
+cat find / -name "envkey.sh"
 go run github.com/prisma/prisma-client-go db push
