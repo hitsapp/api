@@ -1,1 +1,1 @@
-web: cd api && go build && go run api
+release: cd prisma && go run github.com/prisma/prisma-client-go db push
