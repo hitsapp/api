@@ -16,6 +16,9 @@ jobs:
 
       - name: Install the dependencies
         run: make deps
+        
+      - name: Prisma
+        run: cd api/prisma && go run github.com/prisma/prisma-client-go db push
 
       - name: Build
         run: cd api && go build
