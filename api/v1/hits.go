@@ -2,6 +2,7 @@ package v1
 
 import (
 	"context"
+	"github.com/ajstarks/svgo"
 	"github.com/gofiber/fiber/v2"
 	"hits/api/prisma/db"
 	"hits/api/utils"
@@ -12,7 +13,7 @@ import (
 
 func GetHits(c *fiber.Ctx) error {
 	var url = c.Query("url")
-	var svg, _ = strconv.ParseBool(c.Query("svg"))
+	var svgQuery, _ = strconv.ParseBool(c.Query("svg"))
 	var client = utils.GetPrisma()
 	var ctx = context.Background()
 	const regex = `https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)`
@@ -52,18 +53,13 @@ func GetHits(c *fiber.Ctx) error {
 		})
 	}
 
-	if svg == true {
-
-		/*
-			Put all the svg stuff in here
-			We will want something like this https://github.com/ajstarks/svgo
-			just go get github.com/ajstarks/svgo if you want to use this one
-		*/
-
-		return c.JSON(Response{
-			Success: false,
-			Message: "Mate",
-		})
+	if svgQuery == true {
+		c.Set("Content-Type", "image/svg+xml")
+		s := svg.New(c)
+		s.Start(500, 500)
+		s.Square(250, 250, 125, "fill:none;stroke:black")
+		s.End()
+		return nil
 	}
 
 	return c.JSON(Response{
