@@ -1,2 +1,2 @@
-echo "$DATABASE_URL"
+echo "$GOVERSION"
 go run github.com/prisma/prisma-client-go db push
