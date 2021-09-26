@@ -1,3 +1,1 @@
-KEY=$(find / -name "envkey.sh")
-grep "" $KEY
-go run github.com/prisma/prisma-client-go db push
+echo "mate"
