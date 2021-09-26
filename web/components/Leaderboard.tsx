@@ -83,8 +83,9 @@ export const Leaderboard = () => {
       <Title>Leaderboard</Title>
       <Subtitle>Top 10</Subtitle>
       <br />
-      {isLoading && (
+      {isLoading || isError && (
         <List>
+          <p style={{ color: "#9E9E9E" }}>Fetching top hits...</p>
           {[...new Array(10)].map((_, i) => {
             return (
               <ListItem style={{ margin: "8px 0px" }} key={i + 1}>
@@ -110,7 +111,6 @@ export const Leaderboard = () => {
           })}
         </List>
       )}
-      {isError && <span>Error loading hits!</span>}
 
       {hits && hits.length > 0 ? (
         <List>
@@ -134,7 +134,7 @@ export const Leaderboard = () => {
           })}
         </List>
       ) : (
-        <p style={{ textAlign: "center" }}>There are no hits yet!</p>
+        console.log("[HITS] - No hits recieved!")
       )}
     </Container>
   );
