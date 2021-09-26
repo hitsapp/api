@@ -13,11 +13,13 @@ func GetTopHits(c *fiber.Ctx) error {
 	var client = GetPrisma()
 	var ctx = context.Background()
 
+	if limit == 0 {
+		limit = 10
+	}
+	
 	hits, err := client.Hits.FindMany().OrderBy(
 		db.Hits.Hits.Order(db.DESC),
 	).Take(limit).Exec(ctx)
-
-	// TODO: Check if limit is nil and assign default value
 
 	if err != nil {
 		return c.Status(500).JSON(Response{
