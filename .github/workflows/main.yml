@@ -1,0 +1,30 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout project
+        uses: actions/checkout@v2
+        with:
+          clean: false
+          
+      - name: test
+        run: ls
+
+      - name: Install the dependencies
+        run: cd api && go get
+        
+      - name: Prisma
+        run: cd api/prisma && go run github.com/prisma/prisma-client-go db push
+
+      - name: Build
+        run: cd api && go build
+
+      - name: Restart PMGO
+        run: pmgo restart HITS-PROD
