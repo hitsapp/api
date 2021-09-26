@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-export const H1 = styled.h1`
+const H1 = styled.h1`
   margin: 0;
   padding: 0;
   font-size: 1.15em;
