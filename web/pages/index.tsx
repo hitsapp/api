@@ -99,7 +99,7 @@ const Home: NextPage = () => {
 
             <InputTitle>Markdown</InputTitle>
             <Input
-              value={`[Hits](https://hits.link/hits?url=${URL})`}
+              value={`![Hits](https://hits.link/hits?url=${URL})`}
               disabled={true}
             />
           </RightFlexContainers>
