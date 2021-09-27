@@ -11,24 +11,22 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - name: Setup GO
-        uses: actions/setup-go@v2
-        with:
-          go-version: 1.17.1
-
       - name: Checkout project
         uses: actions/checkout@v2
         with:
           clean: false
 
       - name: test
-        run: go
+        working-directory: ./api
+        run: ls
 
       - name: Install the dependencies
-        run: cd api && go get
+        working-directory: ./api
+        run: go get
 
       - name: Prisma
-        run: cd api/prisma && go run github.com/prisma/prisma-client-go db push
+        working-directory: ./api/prisma
+        run: go run github.com/prisma/prisma-client-go db push
 
       - name: Build
         run: cd api && go build
