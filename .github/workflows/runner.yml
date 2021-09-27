@@ -22,7 +22,7 @@ jobs:
 
       - name: Install the dependencies
         working-directory: ./api
-        run: go get
+        run: sudo go get
 
       - name: Prisma
         working-directory: ./api/prisma
