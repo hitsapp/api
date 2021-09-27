@@ -7,6 +7,7 @@
 # Run Docker Compose 
 $ docker-compose up -d
 
+# Sync Database
 $ cd api/prisma && go run github.com/prisma/prisma-client-go db push
 
 # Start Go API
