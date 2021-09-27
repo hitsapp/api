@@ -4,7 +4,7 @@ import (
 	"hits/api/prisma/db"
 )
 
-// testing workflow x6
+// last workflow test maybe?
 
 var globalDb *db.PrismaClient
 

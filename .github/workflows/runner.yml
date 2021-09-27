@@ -16,20 +16,17 @@ jobs:
         with:
           clean: false
 
-      - name: test
-        working-directory: ./api
-        run: ls
+      - name: Prisma
+        working-directory: ./api/prisma
+        run: sudo go run github.com/prisma/prisma-client-go db push
 
       - name: Install the dependencies
         working-directory: ./api
         run: sudo go get
 
-      - name: Prisma
-        working-directory: ./api/prisma
-        run: go run github.com/prisma/prisma-client-go db push
-
       - name: Build
-        run: cd api && go build
+        working-directory: ./api
+        run: sudo go build
 
       - name: Restart PMGO
         run: pmgo restart HITS-PROD
