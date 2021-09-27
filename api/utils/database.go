@@ -4,6 +4,8 @@ import (
 	"hits/api/prisma/db"
 )
 
+// testing workflow
+
 var globalDb *db.PrismaClient
 
 func SetGlobalDb(client *db.PrismaClient) {
