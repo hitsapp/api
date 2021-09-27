@@ -39,7 +39,7 @@ const RightFlexContainers = styled.div`
 const Input = styled.input`
   width: 100%;
   max-width: 80%;
-  margin: 15px 0;
+  margin: 10px 0 25px 0;
   padding: 10px 10px;
   font-size: 1em;
   border: none;
@@ -58,6 +58,14 @@ const Input = styled.input`
     color: ${({ theme }) => theme.textLight}9d;
   }
 `;
+
+const InputTitle = styled.h3`
+    margin: 0;
+    padding: 0;
+    font-size: 1em;
+    font-weight: 700;
+    color: ${({ theme }) => theme.textBlackest};
+`
 
 const Home: NextPage = () => {
   const [URL, setURL] = useState("");
@@ -82,10 +90,14 @@ const Home: NextPage = () => {
             <Title>Copy URL</Title>
             <Subtitle>Choose from the following:</Subtitle>
             <br />
+            
+            <InputTitle>HTML</InputTitle>
             <Input
               value={`<img src="https://hits.link/hits?url=${URL}" />`}
               disabled={true}
             />
+
+            <InputTitle>Markdown</InputTitle>
             <Input
               value={`[Hits](https://hits.link/hits?url=${URL})`}
               disabled={true}
