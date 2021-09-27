@@ -9,6 +9,7 @@ declare module "styled-components" {
     textLight: string;
     textDarker: string;
     textDarkest: string;
+    textBlackest: string;
 
     success: string;
     error: string;
@@ -25,6 +26,7 @@ export const darkTheme: DefaultTheme = {
   textLight: "#dedede",
   textDarker: "#acacac",
   textDarkest: "#9E9E9E",
+  textBlackest: "#696969",
 
   success: "#2fd671",
   error: "#ff4f4f",
