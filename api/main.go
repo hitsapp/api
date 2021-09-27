@@ -18,7 +18,7 @@ func setupRoutes(app *fiber.App) {
 	app.Get("/", func(c *fiber.Ctx) error {
 		return c.JSON(Response{
 			Success: true,
-			Message: "Welcome to Hits API!",
+			Message: "Welcome to Hits API! test",
 		})
 	})
 
