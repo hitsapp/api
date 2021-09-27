@@ -17,7 +17,7 @@ jobs:
           clean: false
           
       - name: test
-        run: ls
+        run: which go
 
       - name: Install the dependencies
         run: cd api && go get
