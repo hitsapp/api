@@ -1,11 +1,9 @@
 module hits/api
 
-// +heroku goVersion go1.17
 go 1.17
 
-// +heroku run go run
-
 require (
+	github.com/ajstarks/svgo v0.0.0-20210923152817-c3b6e2f0c527
 	github.com/gofiber/fiber/v2 v2.19.0
 	github.com/gofiber/storage/redis v0.0.0-20210922062006-ff033d0e0e86
 	github.com/iancoleman/strcase v0.0.0-20190422225806-e506e3ef7365
@@ -16,7 +14,6 @@ require (
 )
 
 require (
-	github.com/ajstarks/svgo v0.0.0-20210923152817-c3b6e2f0c527 // indirect
 	github.com/andybalholm/brotli v1.0.2 // indirect
 	github.com/cespare/xxhash/v2 v2.1.1 // indirect
 	github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f // indirect
