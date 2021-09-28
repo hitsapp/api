@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { Leaderboard, Nav, Subtitle, Title } from "../components";
+import { CopyButton, Leaderboard, Nav, Subtitle, Title } from "../components";
 import styled from "styled-components";
 import { useState } from "react";
 
@@ -40,7 +40,7 @@ const Input = styled.input`
   width: 100%;
   max-width: 80%;
   margin: 10px 0 25px 0;
-  padding: 10px 10px;
+  padding: 15px 10px;
   font-size: 1em;
   border: none;
   border-radius: 8px;
@@ -65,6 +65,12 @@ const InputTitle = styled.h3`
   font-size: 1em;
   font-weight: 700;
   color: ${({ theme }) => theme.textBlackest};
+`;
+
+const InputContainer = styled.div`
+  position: relative;
+  width: 100%;
+  max-width: 80%;
 `;
 
 const Home: NextPage = () => {
@@ -92,16 +98,26 @@ const Home: NextPage = () => {
             <br />
 
             <InputTitle>HTML</InputTitle>
-            <Input
-              value={`<img src="https://hits.link/hits?url=${URL}&svg=true" />`}
-              disabled={true}
-            />
+            <InputContainer>
+              <Input
+                value={`<img src="https://hits.link/hits?url=${URL}&svg=true" />`}
+                disabled={true}
+              />
+              <CopyButton
+                text={`<img src="https://hits.link/hits?url=${URL}&svg=true" />`}
+              />
+            </InputContainer>
 
             <InputTitle>Markdown</InputTitle>
-            <Input
-              value={`![Hits](https://hits.link/hits?url=${URL}&svg=true)`}
-              disabled={true}
-            />
+            <InputContainer>
+              <Input
+                value={`![Hits](https://hits.link/hits?url=${URL}&svg=true)`}
+                disabled={true}
+              />
+              <CopyButton
+                text={`![Hits](https://hits.link/hits?url=${URL}&svg=true)`}
+              />
+            </InputContainer>
           </RightFlexContainers>
         </RightContainer>
       </MainContent>
