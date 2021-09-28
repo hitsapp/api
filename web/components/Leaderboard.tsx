@@ -2,6 +2,7 @@ import { useLeaderboard } from "../hooks/useLeaderboard";
 import styled from "styled-components";
 import { Subtitle, Title } from ".";
 import Skeleton from "react-loading-skeleton";
+import Image from "next/image";
 
 const Container = styled.div`
   padding: 24px 24px;
@@ -77,40 +78,42 @@ const Link = styled.a`
 
 export const Leaderboard = () => {
   const { hits, isError, isLoading } = useLeaderboard();
+  const metadata = (url: string) => `https://www.google.com/s2/favicons?sz=128&domain_url=${url}`;
 
   return (
     <Container>
       <Title>Leaderboard</Title>
       <Subtitle>Top 10</Subtitle>
       <br />
-      {isLoading || isError && (
-        <List>
-          <p style={{ color: "#9E9E9E" }}>Fetching top hits...</p>
-          {[...new Array(20)].map((_, i) => {
-            return (
-              <ListItem style={{ margin: "8px 0px" }} key={i + 1}>
-                <Place>{i + 1}</Place>
-                <Skeleton
-                  style={{ marginLeft: 25, borderRadius: 10 }}
-                  width={55}
-                  height={55}
-                />
-                <ListItemInfo>
-                  <Skeleton width={140} height={15} />
-                  <HitCountSpan>
-                    <Skeleton width={30} height={15} />
-                    <Skeleton
-                      style={{ marginLeft: 10 }}
-                      width={30}
-                      height={15}
-                    />
-                  </HitCountSpan>
-                </ListItemInfo>
-              </ListItem>
-            );
-          })}
-        </List>
-      )}
+      {isLoading ||
+        (isError && (
+          <List>
+            <p style={{ color: "#9E9E9E" }}>Fetching top hits...</p>
+            {[...new Array(20)].map((_, i) => {
+              return (
+                <ListItem style={{ margin: "8px 0px" }} key={i + 1}>
+                  <Place>{i + 1}</Place>
+                  <Skeleton
+                    style={{ marginLeft: 25, borderRadius: 10 }}
+                    width={55}
+                    height={55}
+                  />
+                  <ListItemInfo>
+                    <Skeleton width={140} height={15} />
+                    <HitCountSpan>
+                      <Skeleton width={30} height={15} />
+                      <Skeleton
+                        style={{ marginLeft: 10 }}
+                        width={30}
+                        height={15}
+                      />
+                    </HitCountSpan>
+                  </ListItemInfo>
+                </ListItem>
+              );
+            })}
+          </List>
+        ))}
 
       {hits && hits.length > 0 ? (
         <List>
@@ -119,7 +122,14 @@ export const Leaderboard = () => {
               <ListItem key={i}>
                 <Place>{i + 1}</Place>
                 <Hit>
-                  <HitIcon></HitIcon>
+                  <HitIcon style={{ textAlign: "center" }}>
+                    <Image
+                      src={metadata(hit.url)}
+                      alt={hit.url}
+                      height="50"
+                      width="50"
+                    />
+                  </HitIcon>
                   <ListItemInfo>
                     <Link href={hit.url} target="_blank">
                       {hit.url}

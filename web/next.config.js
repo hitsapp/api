@@ -7,6 +7,9 @@ const withBundleAnalyzer = bundleAnalyzer({
 module.exports = withBundleAnalyzer({
   poweredByHeader: false,
   reactStrictMode: true,
+  images: {
+    domains: ['localhost', 'www.hits.link', 'www.google.com'],
+  },
   headers() {
     return [
       {
