@@ -60,12 +60,12 @@ const Input = styled.input`
 `;
 
 const InputTitle = styled.h3`
-    margin: 0;
-    padding: 0;
-    font-size: 1em;
-    font-weight: 700;
-    color: ${({ theme }) => theme.textBlackest};
-`
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+  font-weight: 700;
+  color: ${({ theme }) => theme.textBlackest};
+`;
 
 const Home: NextPage = () => {
   const [URL, setURL] = useState("");
@@ -90,16 +90,16 @@ const Home: NextPage = () => {
             <Title>Copy URL</Title>
             <Subtitle>Choose from the following:</Subtitle>
             <br />
-            
+
             <InputTitle>HTML</InputTitle>
             <Input
-              value={`<img src="https://hits.link/hits?url=${URL}" />`}
+              value={`<img src="https://hits.link/hits?url=${URL}&svg=true" />`}
               disabled={true}
             />
 
             <InputTitle>Markdown</InputTitle>
             <Input
-              value={`![Hits](https://hits.link/hits?url=${URL})`}
+              value={`![Hits](https://hits.link/hits?url=${URL}&svg=true)`}
               disabled={true}
             />
           </RightFlexContainers>
