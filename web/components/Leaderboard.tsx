@@ -41,6 +41,9 @@ const Hit = styled.div`
 `;
 
 const HitIcon = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 55px;
   height: 55px;
   border-radius: 10px;
@@ -78,7 +81,8 @@ const Link = styled.a`
 
 export const Leaderboard = () => {
   const { hits, isError, isLoading } = useLeaderboard();
-  const metadata = (url: string) => `https://www.google.com/s2/favicons?sz=128&domain_url=${url}`;
+  const metadata = (url: string) =>
+    `https://www.google.com/s2/favicons?sz=128&domain_url=${url}`;
 
   return (
     <Container>
@@ -126,8 +130,8 @@ export const Leaderboard = () => {
                     <Image
                       src={metadata(hit.url)}
                       alt={hit.url}
-                      height="50"
-                      width="50"
+                      height="40"
+                      width="40"
                     />
                   </HitIcon>
                   <ListItemInfo>
