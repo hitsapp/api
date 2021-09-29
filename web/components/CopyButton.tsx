@@ -7,6 +7,7 @@ const Btn = styled.button`
   top: 16px;
   right: 107px;
   padding: 10px 20px;
+  font-size: 0.9em;
   border: none;
   border-radius: 8px;
   cursor: pointer;
