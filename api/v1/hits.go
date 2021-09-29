@@ -68,6 +68,7 @@ func GetHits(c *fiber.Ctx) error {
 	if svgQuery == true {
 		svg := GenerateBadge(strconv.Itoa(hit.Hits), "000", fmt.Sprintf("#%s", strings.Trim(bgColorQuery, "\"")))
 		c.Set(fiber.HeaderContentType, "image/svg+xml;charset=utf-8")
+		c.Set(fiber.HeaderCacheControl, "max-age=0, s-maxage=0, must-revalidate, no-cache, no-store")
 		return c.Send(svg)
 	}
 

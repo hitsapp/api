@@ -37,6 +37,7 @@ func main() {
 		ServerHeader:  "Hits API",
 		AppName:       "Hits API v1.0",
 		BodyLimit:     1024 * 1024,
+		GETOnly: true,
 	})
 
 	app.Use(logger.New(logger.Config{
