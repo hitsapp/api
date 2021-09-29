@@ -2,28 +2,40 @@ package v1
 
 import (
 	"context"
-	"github.com/ajstarks/svgo"
 	"github.com/gofiber/fiber/v2"
 	"hits/api/prisma/db"
 	"hits/api/utils"
+	. "hits/api/badge"
 	. "hits/api/utils"
 	"regexp"
 	"strconv"
+	"fmt"
+	"strings"
 )
 
 func GetHits(c *fiber.Ctx) error {
 	var url = c.Query("url")
 	var svgQuery, _ = strconv.ParseBool(c.Query("svg"))
+	var bgColorQuery = c.Query("bg")
 	var client = utils.GetPrisma()
 	var ctx = context.Background()
 	const regex = `https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)`
 	match, _ := regexp.MatchString(regex, url)
 
-	if !match {
+	if url != "" && !match {
 		return c.Status(400).JSON(Response{
 			Success: false,
 			Message: "Invalid URL",
 		})
+	} else if url == "" {
+		return c.Status(400).JSON(Response{
+			Success: false,
+			Message: "URL cannot be empty",
+		})
+	}
+
+	if bgColorQuery == fmt.Sprint(0) {
+		bgColorQuery = "97ca00"
 	}
 
 	hit, err := client.Hits.FindUnique(
@@ -54,12 +66,10 @@ func GetHits(c *fiber.Ctx) error {
 	}
 
 	if svgQuery == true {
-		c.Set("Content-Type", "image/svg+xml")
-		s := svg.New(c)
-		s.Start(500, 500)
-		s.Square(250, 250, 125, "fill:none;stroke:black")
-		s.End()
-		return nil
+		svg := GenerateBadge(strconv.Itoa(hit.Hits), "000", fmt.Sprintf("#%s", strings.Trim(bgColorQuery, "\"")))
+		c.Set(fiber.HeaderContentType, "image/svg+xml;charset=utf-8")
+		c.Set(fiber.HeaderCacheControl, "max-age=0, s-maxage=0, must-revalidate, no-cache, no-store")
+		return c.Send(svg)
 	}
 
 	return c.JSON(Response{

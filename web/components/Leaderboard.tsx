@@ -51,6 +51,10 @@ const HitIcon = styled.div`
   box-shadow: 0px 0px 12.1858px rgba(0, 0, 0, 0.25);
 `;
 
+const HitImage = styled(Image)`
+  border-radius: 5px;
+`;
+
 const ListItemInfo = styled.div`
   display: flex;
   flex-direction: column;
@@ -126,8 +130,8 @@ export const Leaderboard = () => {
               <ListItem key={i}>
                 <Place>{i + 1}</Place>
                 <Hit>
-                  <HitIcon style={{ textAlign: "center" }}>
-                    <Image
+                  <HitIcon>
+                    <HitImage
                       src={metadata(hit.url)}
                       alt={hit.url}
                       height="40"
