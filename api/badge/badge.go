@@ -42,6 +42,10 @@ func GenerateBadge(label, count, color, backgroundColor, border string) (badge [
 		border = "3"
 	}
 
+	if label == "" {
+		label = "hits"
+	}
+
 	_, _ = tmpl.ExecuteFunc(buf, func(w io.Writer, tag string) (int, error) {
 		switch tag {
 		case "label":
