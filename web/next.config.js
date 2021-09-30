@@ -1,44 +1,44 @@
-const bundleAnalyzer = require('@next/bundle-analyzer');
+const bundleAnalyzer = require("@next/bundle-analyzer");
 
 const withBundleAnalyzer = bundleAnalyzer({
-  enabled: process.env.ANALYZE === 'true',
+  enabled: process.env.ANALYZE === "true",
 });
 
 module.exports = withBundleAnalyzer({
   poweredByHeader: false,
   reactStrictMode: true,
   images: {
-    domains: ['localhost', 'www.hits.link', 'www.google.com'],
+    domains: ["localhost", "www.hits.link", "www.google.com"],
   },
   headers() {
     return [
       {
-        source: '/(.*)',
+        source: "/(.*)",
         headers: [
           // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy
           {
-            key: 'Referrer-Policy',
-            value: 'same-origin',
+            key: "Referrer-Policy",
+            value: "same-origin",
           },
           // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
           {
-            key: 'X-Frame-Options',
-            value: 'DENY',
+            key: "X-Frame-Options",
+            value: "DENY",
           },
           // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options
           {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff',
+            key: "X-Content-Type-Options",
+            value: "nosniff",
           },
           // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control
           {
-            key: 'X-DNS-Prefetch-Control',
-            value: 'on',
+            key: "X-DNS-Prefetch-Control",
+            value: "on",
           },
           // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security
           {
-            key: 'Strict-Transport-Security',
-            value: 'max-age=31536000; includeSubDomains; preload',
+            key: "Strict-Transport-Security",
+            value: "max-age=31536000; includeSubDomains; preload",
           },
         ],
       },
@@ -47,10 +47,15 @@ module.exports = withBundleAnalyzer({
   async redirects() {
     return [
       {
-        source: '/github',
-        destination: 'https://github.com/heybereket/hits',
+        source: "/github",
+        destination: "https://github.com/heybereket/hits",
         permanent: false,
+      },
+      {
+        source: "/hits",
+        destination: "https://api.hits.link/v1/hits",
+        permanent: true,
       },
     ];
   },
-})
+});
