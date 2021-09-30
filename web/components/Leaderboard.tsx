@@ -154,7 +154,7 @@ export const Leaderboard = () => {
                     />
                   </HitIcon>
                   <ListItemInfo>
-                    <Link href={hit.url} target="_blank">
+                    <Link href={hit.url.substr(8)} target="_blank">
                       {hit.url}
                     </Link>
                     <HitCountSpan>
