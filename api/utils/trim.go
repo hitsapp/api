@@ -11,3 +11,5 @@ func Trim(str string) string {
 	trimmed = strings.Replace(trimmed, "> ", ">", -1)
 	return trimmed
 }
+
+// test
