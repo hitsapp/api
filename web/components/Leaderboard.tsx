@@ -86,7 +86,7 @@ const Link = styled.a`
 export const Leaderboard = () => {
   const { hits, isError, isLoading } = useLeaderboard();
   const metadata = (url: string) =>
-    `https://www.google.com/s2/favicons?sz=128&domain_url=${url}`;
+    `https://api.faviconkit.com/${new URL(url).hostname}/40`;
 
   return (
     <Container>
