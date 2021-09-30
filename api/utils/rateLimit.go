@@ -24,4 +24,4 @@ func RateLimit(amount int) fiber.Handler {
 	})
 }
 
-// omg x3
+// omg x4
