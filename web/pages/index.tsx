@@ -100,22 +100,22 @@ const Home: NextPage = () => {
             <InputTitle>HTML</InputTitle>
             <InputContainer>
               <Input
-                value={`<img src="https://hits.link/hits?url=${URL}&svg=true" />`}
+                value={`<img src="https://hits.link/hits?url=${URL}" />`}
                 disabled={true}
               />
               <CopyButton
-                text={`<img src="https://hits.link/hits?url=${URL}&svg=true" />`}
+                text={`<img src="https://hits.link/hits?url=${URL}" />`}
               />
             </InputContainer>
 
             <InputTitle>Markdown</InputTitle>
             <InputContainer>
               <Input
-                value={`![Hits](https://hits.link/hits?url=${URL}&svg=true)`}
+                value={`![Hits](https://hits.link/hits?url=${URL})`}
                 disabled={true}
               />
               <CopyButton
-                text={`![Hits](https://hits.link/hits?url=${URL}&svg=true)`}
+                text={`![Hits](https://hits.link/hits?url=${URL})`}
               />
             </InputContainer>
           </RightFlexContainers>

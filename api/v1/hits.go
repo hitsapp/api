@@ -2,20 +2,26 @@ package v1
 
 import (
 	"context"
+	"fmt"
 	"github.com/gofiber/fiber/v2"
+	. "hits/api/badge"
 	"hits/api/prisma/db"
 	"hits/api/utils"
-	. "hits/api/badge"
 	. "hits/api/utils"
 	"regexp"
 	"strconv"
-	"fmt"
 	"strings"
 )
 
+func editText (text string) string {
+	var output = fmt.Sprintf("#%s", strings.Trim(text, "\""))
+	return output
+}
+
 func GetHits(c *fiber.Ctx) error {
 	var url = c.Query("url")
-	var svgQuery, _ = strconv.ParseBool(c.Query("svg"))
+	var json, _ = strconv.ParseBool(c.Query("json"))
+	var colorQuery = c.Query("color")
 	var bgColorQuery = c.Query("bg")
 	var client = utils.GetPrisma()
 	var ctx = context.Background()
@@ -65,16 +71,16 @@ func GetHits(c *fiber.Ctx) error {
 		})
 	}
 
-	if svgQuery == true {
-		svg := GenerateBadge(strconv.Itoa(hit.Hits), "000", fmt.Sprintf("#%s", strings.Trim(bgColorQuery, "\"")))
-		c.Set(fiber.HeaderContentType, "image/svg+xml;charset=utf-8")
-		c.Set(fiber.HeaderCacheControl, "max-age=0, s-maxage=0, must-revalidate, no-cache, no-store")
-		return c.Send(svg)
+	if json == true {
+		return c.JSON(Response{
+			Success: true,
+			Message: "Successfully requested hit!",
+			Data:    hit,
+		})
 	}
 
-	return c.JSON(Response{
-		Success: true,
-		Message: "Successfully requested hit!",
-		Data:    hit,
-	})
+	svg := GenerateBadge(strconv.Itoa(hit.Hits), editText(colorQuery), editText(bgColorQuery))
+	c.Set(fiber.HeaderContentType, "image/svg+xml;charset=utf-8")
+	c.Set(fiber.HeaderCacheControl, "max-age=0, s-maxage=0, must-revalidate, no-cache, no-store")
+	return c.Send(svg)
 }
