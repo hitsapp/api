@@ -96,7 +96,8 @@ export const Leaderboard = () => {
 
     if (
       formattedURL.hostname === "github.com" &&
-      formattedURL.pathname.length > 1
+      formattedURL.pathname.length > 1 &&
+      url.substr(8).split("/").length -1 < 2
     )
       return `https://github.com${formattedURL.pathname}.png`;
 
