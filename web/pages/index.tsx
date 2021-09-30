@@ -8,6 +8,9 @@ const Container = styled.div`
   height: 80vh;
   max-width: 1200px;
   margin: 0 auto;
+  @media (max-width: 866px) {
+    width: 90%;
+  }
 `;
 
 const MainContent = styled.div`
@@ -46,8 +49,8 @@ const RightFlexContainers = styled.div`
 
 const Input = styled.input`
   width: 100%;
-  min-width: 200px;
-  max-width: 80%;
+  min-width: 75%;
+  max-width: 400px;
   margin: 10px 0 25px 0;
   padding: 15px 10px;
   font-size: 1em;

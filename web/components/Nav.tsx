@@ -5,11 +5,18 @@ const Container = styled.div`
   padding: 10px 20px;
   display: flex;
   align-items: center;
+
+  @media (max-width: 866px) {
+    width: 90%;
+  }
 `;
 
 const Brand = styled.h1`
   margin-right: 15px;
   font-weight: black;
+  @media (max-width: 466px) {
+    flex-grow: 1;
+  }
 `;
 
 const BrandSpan = styled.span`
@@ -17,6 +24,10 @@ const BrandSpan = styled.span`
   font-weight: medium;
   color: ${({ theme }) => theme.textDarkest};
   flex-grow: 1;
+
+  @media (max-width: 466px) {
+    display: none;
+  }
 `;
 
 const Creators = styled.div`
