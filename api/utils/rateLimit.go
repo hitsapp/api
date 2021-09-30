@@ -1,9 +1,10 @@
 package utils
 
 import (
+	"time"
+
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/limiter"
-	"time"
 )
 
 func RateLimit(amount int) fiber.Handler {
@@ -22,3 +23,5 @@ func RateLimit(amount int) fiber.Handler {
 		Storage: GetRedis(),
 	})
 }
+
+// omg x4
