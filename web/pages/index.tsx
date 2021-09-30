@@ -120,11 +120,19 @@ const Home: NextPage = () => {
                 style={{
                   padding: "15px 87px 15px 10px",
                 }}
-                value={`<img src="https://hits.link/hits?url=${URL}" />`}
+                value={`<img src="${
+                  process.env.NODE_ENV === "development"
+                    ? "localhost:3000"
+                    : "https://hits.link"
+                }/hits?url=${URL}" />`}
                 disabled={true}
               />
               <CopyButton
-                text={`<img src="https://hits.link/hits?url=${URL}" />`}
+                text={`<img src="${
+                  process.env.NODE_ENV === "development"
+                    ? "localhost:3000"
+                    : "https://hits.link"
+                }/hits?url=${URL}" />`}
               />
             </InputContainer>
 
@@ -134,10 +142,20 @@ const Home: NextPage = () => {
                 style={{
                   padding: "15px 87px 15px 10px",
                 }}
-                value={`![Hits](https://hits.link/hits?url=${URL})`}
+                value={`![Hits](${
+                  process.env.NODE_ENV === "development"
+                    ? "localhost:3000"
+                    : "https://hits.link"
+                }/hits?url=${URL})`}
                 disabled={true}
               />
-              <CopyButton text={`![Hits](https://hits.link/hits?url=${URL})`} />
+              <CopyButton
+                text={`![Hits](${
+                  process.env.NODE_ENV === "development"
+                    ? "localhost:3000"
+                    : "https://hits.link"
+                }/hits?url=${URL})`}
+              />
             </InputContainer>
           </RightFlexContainers>
         </RightContainer>

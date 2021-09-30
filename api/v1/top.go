@@ -2,10 +2,11 @@ package v1
 
 import (
 	"context"
-	"github.com/gofiber/fiber/v2"
 	"hits/api/prisma/db"
 	. "hits/api/utils"
 	"strconv"
+
+	"github.com/gofiber/fiber/v2"
 )
 
 func GetTopHits(c *fiber.Ctx) error {

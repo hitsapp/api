@@ -1,5 +1,3 @@
-/* eslint-disable react/display-name */
-// eslint-disable-next-line @next/next/no-document-import-in-page
 import Document, {
   Head,
   Html,
