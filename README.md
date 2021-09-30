@@ -1,6 +1,22 @@
 # [hits.link](https://hits.link) - the better hits counter
 
-## Getting Started
+## API Docs
+
+**Create a new Hit:** <br />
+`GET https://api.hits.link/v1/hits?url=https://yoururl.com (15reqs/minute)`
+
+**Query Params:**
+```bash
+# Enter colours without "#"
+?bg - Set the background colour of the hits # 
+?color - Set the text color
+```
+
+**Get Top Hits:** <br />
+`GET https://api.hits.link/v1/top (30s cache, 50reqs/minute)`
+
+
+## Running Locally
 ```bash
 # Copy all .env.example files into your .env file
 
