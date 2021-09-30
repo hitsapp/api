@@ -3,7 +3,6 @@ package v1
 import (
 	"context"
 	"fmt"
-	"github.com/gofiber/fiber/v2"
 	. "hits/api/badge"
 	"hits/api/prisma/db"
 	"hits/api/utils"
@@ -11,9 +10,11 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
+
+	"github.com/gofiber/fiber/v2"
 )
 
-func editText (text string) string {
+func editText(text string) string {
 	var output = fmt.Sprintf("#%s", strings.Trim(text, "\""))
 	return output
 }
@@ -23,6 +24,7 @@ func GetHits(c *fiber.Ctx) error {
 	var json, _ = strconv.ParseBool(c.Query("json"))
 	var colorQuery = c.Query("color")
 	var bgColorQuery = c.Query("bg")
+	var uniqueQuery, _ = strconv.ParseBool(c.Query("unique"))
 	var client = utils.GetPrisma()
 	var ctx = context.Background()
 	const regex = `https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)`
@@ -42,6 +44,17 @@ func GetHits(c *fiber.Ctx) error {
 
 	if bgColorQuery == fmt.Sprint(0) {
 		bgColorQuery = "97ca00"
+	}
+
+	if uniqueQuery {
+		test, err := GetRedis().Get(c.IP())
+		println(c.IP())
+
+		if err != nil {
+			println(err.Error())
+		}
+
+		println(len(test))
 	}
 
 	hit, err := client.Hits.FindUnique(
