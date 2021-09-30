@@ -8,8 +8,8 @@
 **Query Params:**
 ```bash
 # Enter colours without "#"
-?bg - Set the background colour of the hits
 ?json - Send JSON with data instead of SVG
+?bg - Set the background colour of the hits
 ?color - Set the text color
 ```
 
