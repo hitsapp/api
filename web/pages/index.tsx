@@ -113,11 +113,11 @@ const Home: NextPage = () => {
                 style={{
                   padding: "15px 87px 15px 10px",
                 }}
-                value={`<img src="https://hits.link/hits?url=${URL}&svg=true" />`}
+                value={`<img src="https://hits.link/hits?url=${URL}" />`}
                 disabled={true}
               />
               <CopyButton
-                text={`<img src="https://hits.link/hits?url=${URL}&svg=true" />`}
+                text={`<img src="https://hits.link/hits?url=${URL}" />`}
               />
             </InputContainer>
 
@@ -127,12 +127,10 @@ const Home: NextPage = () => {
                 style={{
                   padding: "15px 87px 15px 10px",
                 }}
-                value={`![Hits](https://hits.link/hits?url=${URL}&svg=true)`}
+                value={`![Hits](https://hits.link/hits?url=${URL})`}
                 disabled={true}
               />
-              <CopyButton
-                text={`![Hits](https://hits.link/hits?url=${URL}&svg=true)`}
-              />
+              <CopyButton text={`![Hits](https://hits.link/hits?url=${URL})`} />
             </InputContainer>
           </RightFlexContainers>
         </RightContainer>

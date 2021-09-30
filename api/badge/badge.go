@@ -25,8 +25,8 @@ var badgeSVG = utils.Trim(`
 		<rect width="{{rectWidth}}" height="20" fill="url(#s)"/>
 	</g>
 	<g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" text-rendering="geometricPrecision" font-size="110">
-		<text x="355" y="140" transform="scale(.1)" fill="#fff">hits</text>
-		<text x="835" y="140" transform="scale(.1)" fill="#fff">{{count}}</text>
+		<text x="355" y="140" transform="scale(.1)" fill="{{color}}">hits</text>
+		<text x="835" y="140" transform="scale(.1)" fill="{{color}}">{{count}}</text>
 	</g>
 </svg>
 `)
