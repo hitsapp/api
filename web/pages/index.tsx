@@ -100,11 +100,11 @@ const Home: NextPage = () => {
             <InputTitle>HTML</InputTitle>
             <InputContainer>
               <Input
-                value={`<img src="https://api.hits.link/v1/hits?url=${URL}" />`}
+                value={`<img src="https://api.hits.link/v1/hits?url=${URL}&svg=true" />`}
                 disabled={true}
               />
               <CopyButton
-                text={`<img src="https://api.hits.link/v1/hits?url=${URL}" />`}
+                text={`<img src="https://api.hits.link/v1/hits?url=${URL}&svg=true" />`}
               />
             </InputContainer>
 
