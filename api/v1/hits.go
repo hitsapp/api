@@ -19,11 +19,17 @@ func editText(text string) string {
 	return output
 }
 
+func trimQuotes(text string) string {
+	return strings.Trim(text, "\"")
+}
+
 func GetHits(c *fiber.Ctx) error {
 	var url = c.Query("url")
 	var json, _ = strconv.ParseBool(c.Query("json"))
 	var colorQuery = c.Query("color")
 	var bgColorQuery = c.Query("bg")
+	var borderQuery = c.Query("border")
+	var labelQuery = c.Query("label")
 	var uniqueQuery, _ = strconv.ParseBool(c.Query("unique"))
 	var client = utils.GetPrisma()
 	var ctx = context.Background()
@@ -92,7 +98,7 @@ func GetHits(c *fiber.Ctx) error {
 		})
 	}
 
-	svg := GenerateBadge(strconv.Itoa(hit.Hits), editText(colorQuery), editText(bgColorQuery))
+	svg := GenerateBadge(trimQuotes(labelQuery), strconv.Itoa(hit.Hits), editText(colorQuery), editText(bgColorQuery), trimQuotes(borderQuery))
 	c.Set(fiber.HeaderContentType, "image/svg+xml;charset=utf-8")
 	c.Set(fiber.HeaderCacheControl, "max-age=0, s-maxage=0, must-revalidate, no-cache, no-store")
 	return c.Send(svg)

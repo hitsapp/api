@@ -7,10 +7,14 @@
 
 **Query Params:**
 ```bash
-# Enter colours without "#"
+# Valid hex color codes are accepted (remove "#" in the queries that apply)
+# Default border type is round
+
 ?json - Send JSON with data instead of SVG
+?label - Set label text
 ?bg - Set the background colour of the hits
 ?color - Set the text color
+?border - Choose a border (square or round)
 ```
 
 **Get Top Hits:** <br />
