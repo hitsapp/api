@@ -85,8 +85,17 @@ const Link = styled.a`
 
 export const Leaderboard = () => {
   const { hits, isError, isLoading } = useLeaderboard();
-  const metadata = (url: string) =>
-    `https://api.faviconkit.com/${new URL(url).hostname}/40`;
+  const metadata = (url: string) => {
+    const formattedURL = new URL(url);
+
+    if (
+      formattedURL.hostname === "github.com" &&
+      formattedURL.pathname.length > 1
+    )
+      return `https://github.com${formattedURL.pathname}.png`;
+
+    return `https://api.faviconkit.com/${formattedURL.hostname}/40`;
+  };
 
   return (
     <Container>

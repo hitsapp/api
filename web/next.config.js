@@ -8,7 +8,7 @@ module.exports = withBundleAnalyzer({
   poweredByHeader: false,
   reactStrictMode: true,
   images: {
-    domains: ["localhost", "www.hits.link", "api.faviconkit.com"],
+    domains: ["localhost", "www.hits.link", "api.faviconkit.com", "github.com"],
   },
   headers() {
     return [
