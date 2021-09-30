@@ -11,7 +11,7 @@ func CacheRoute() fiber.Handler {
 		Next: func(c *fiber.Ctx) bool {
 			return c.IP() == "127.0.0.1" || c.IP() == "localhost"
 		},
-		Expiration:   5 * time.Minute,
+		Expiration:   30 * time.Second,
 		CacheControl: true,
 		Storage:      GetRedis(),
 	})
