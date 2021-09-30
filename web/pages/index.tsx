@@ -44,6 +44,10 @@ const RightFlexContainers = styled.div`
 
   &:last-of-type {
     margin-top: 20px;
+
+    @media (max-width: 866px) {
+      margin-bottom: 40px;
+    }
   }
 `;
 
