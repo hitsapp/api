@@ -1,4 +1,5 @@
 # [hits.link](https://hits.link) - the better hits counter
+![Hits](https://hits.link/hits?url=https://github.com/heybereket/hits&bg=292B2F)
 
 ## API Docs
 
@@ -8,9 +9,9 @@
 **Query Params:**
 ```bash
 # Enter colours without "#"
-?json - Send JSON with data instead of SVG
-?bg - Set the background colour of the hits
-?color - Set the text color
+&json - Send JSON with data instead of SVG
+&bg - Set the background colour of the hits
+&color - Set the text color
 ```
 
 **Get Top Hits:** <br />
