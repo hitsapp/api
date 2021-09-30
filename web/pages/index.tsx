@@ -38,6 +38,7 @@ const RightFlexContainers = styled.div`
 
 const Input = styled.input`
   width: 100%;
+  min-width: 200px;
   max-width: 80%;
   margin: 10px 0 25px 0;
   padding: 15px 10px;
@@ -101,6 +102,9 @@ const Home: NextPage = () => {
             <InputTitle>HTML</InputTitle>
             <InputContainer>
               <Input
+                style={{
+                  padding: "15px 87px 15px 10px",
+                }}
                 value={`<img src="https://hits.link/hits?url=${URL}&svg=true" />`}
                 disabled={true}
               />
@@ -112,6 +116,9 @@ const Home: NextPage = () => {
             <InputTitle>Markdown</InputTitle>
             <InputContainer>
               <Input
+                style={{
+                  padding: "15px 87px 15px 10px",
+                }}
                 value={`![Hits](https://hits.link/hits?url=${URL}&svg=true)`}
                 disabled={true}
               />
