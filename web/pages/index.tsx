@@ -14,6 +14,10 @@ const MainContent = styled.div`
   display: flex;
   height: 100%;
   flex-direction: row;
+
+  @media (max-width: 866px) {
+    flex-direction: column;
+  }
 `;
 
 const RightContainer = styled.div`
@@ -21,6 +25,10 @@ const RightContainer = styled.div`
   flex-direction: column;
   margin-left: 20px;
   width: 100%;
+
+  @media (max-width: 866px) {
+    margin-left: 0;
+  }
 `;
 
 const RightFlexContainers = styled.div`
