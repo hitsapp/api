@@ -30,6 +30,7 @@ func GetHits(c *fiber.Ctx) error {
 	var bgColorQuery = c.Query("bg")
 	var borderQuery = c.Query("border")
 	var labelQuery = c.Query("label")
+	var fontQuery = c.Query("font")
 	var uniqueQuery, _ = strconv.ParseBool(c.Query("unique"))
 	var client = utils.GetPrisma()
 	var ctx = context.Background()
@@ -98,7 +99,7 @@ func GetHits(c *fiber.Ctx) error {
 		})
 	}
 
-	svg := GenerateBadge(trimQuotes(labelQuery), strconv.Itoa(hit.Hits), editText(colorQuery), editText(bgColorQuery), trimQuotes(borderQuery))
+	svg := GenerateBadge(trimQuotes(labelQuery), strconv.Itoa(hit.Hits), editText(colorQuery), editText(bgColorQuery), trimQuotes(borderQuery), trimQuotes(fontQuery))
 	c.Set(fiber.HeaderContentType, "image/svg+xml;charset=utf-8")
 	c.Set(fiber.HeaderCacheControl, "max-age=0, s-maxage=0, must-revalidate, no-cache, no-store")
 	return c.Send(svg)

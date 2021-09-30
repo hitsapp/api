@@ -7,15 +7,16 @@
 `GET https://api.hits.link/v1/hits?url=https://yoururl.com (15reqs/minute)`
 
 **Query Params:**
-```bash
-# Valid hex color codes are accepted (remove "#" in the queries that apply)
-# Default border type is round
+> Valid hex color codes are accepted (remove "#" in the queries that apply)
+> Default border type is round
 
+```bash
 ?json - Send JSON with data instead of SVG
 ?label - Set label text
 ?bg - Set the background colour of the hits
 ?color - Set the text color
 ?border - Choose a border (square or round)
+?font - Set the font family (supports any font from Google Fonts)
 ```
 
 **Get Top Hits:** <br />
