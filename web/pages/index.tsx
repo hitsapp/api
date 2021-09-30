@@ -69,6 +69,7 @@ const InputTitle = styled.h3`
 
 const InputContainer = styled.div`
   position: relative;
+  display: inline-flex;
   width: 100%;
   max-width: 80%;
 `;

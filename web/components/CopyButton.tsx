@@ -3,13 +3,14 @@ import Copy from "react-copy-to-clipboard";
 import styled from "styled-components";
 
 const Btn = styled.button`
-  position: absolute;
-  top: 16px;
-  right: 107px;
+  position: relative;
+  top: -6px;
+  right: 80px;
   padding: 10px 20px;
   font-size: 0.9em;
   border: none;
   border-radius: 8px;
+  align-self: center;
   cursor: pointer;
   background: ${({ theme }) => theme.layoutDarkest};
   color: ${({ theme }) => theme.textDarker};
