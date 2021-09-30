@@ -22,5 +22,3 @@ func RateLimit(amount int) fiber.Handler {
 		Storage: GetRedis(),
 	})
 }
-
-// workflow
