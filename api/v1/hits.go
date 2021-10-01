@@ -10,6 +10,7 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/gofiber/fiber/v2"
 )
@@ -31,10 +32,10 @@ func GetHits(c *fiber.Ctx) error {
 	var borderQuery = c.Query("border")
 	var labelQuery = c.Query("label")
 	var fontQuery = c.Query("font")
-	var uniqueQuery, _ = strconv.ParseBool(c.Query("unique"))
 	var client = utils.GetPrisma()
 	var ctx = context.Background()
 	const regex = `https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)`
+	var incrementValue = 1
 	match, _ := regexp.MatchString(regex, url)
 
 	if url != "" && !match {
@@ -53,21 +54,19 @@ func GetHits(c *fiber.Ctx) error {
 		bgColorQuery = "97ca00"
 	}
 
-	if uniqueQuery {
-		test, err := GetRedis().Get(c.IP())
-		println(c.IP())
+	ip, err := RedisGet(c.IP())
 
-		if err != nil {
-			println(err.Error())
-		}
-
-		println(len(test))
+	// check if IP is less than 1 in length and or there is an error
+	if len(ip) < 1 {
+		RedisSet(c.IP(), c.IP(), 1*time.Minute)
+	} else {
+		incrementValue = 0
 	}
 
 	hit, err := client.Hits.FindUnique(
 		db.Hits.URL.Equals(url),
 	).Update(
-		db.Hits.Hits.Increment(1),
+		db.Hits.Hits.Increment(incrementValue),
 	).Exec(ctx)
 
 	if err != nil && err.Error() == "ErrNotFound" {
