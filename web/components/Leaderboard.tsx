@@ -111,7 +111,7 @@ export const Leaderboard = () => {
   return (
     <Container>
       <Title>Leaderboard</Title>
-      <Subtitle>Top 10</Subtitle>
+      <Subtitle>Top 20</Subtitle>
       <br />
       {isLoading ||
         (isError && (
