@@ -4,7 +4,7 @@
 ## API Docs
 
 **Create a new Hit:** <br />
-`GET https://api.hits.link/v1/hits?url=https://yoururl.com (15reqs/minute)`
+`GET https://api.hits.link/v1/hits?url=https://yoururl.com (20reqs/minute)`
 
 **Query Params:**
 > Valid hex color codes are accepted (remove "#" in the queries that apply) <br />
