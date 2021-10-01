@@ -23,7 +23,7 @@
 `GET https://api.hits.link/v1/top (30s cache, 50reqs/minute)`
 
 ## Used on
-** Open a PR to add your website!**
+**Open a PR to add your website!**
 - https://github.com/looskie
 - https://github.com/alii
 - https://github.com/heybereket
