@@ -147,7 +147,7 @@ const Home: NextPage = () => {
                     exit={"exit"}
                     variants={validationAnimations}
                   >
-                    <X size={35} />
+                    <X size={30} />
                   </IconContainer>
                 )}
               </AnimatePresence>
