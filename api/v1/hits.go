@@ -56,7 +56,7 @@ func GetHits(c *fiber.Ctx) error {
 
 	ip, _ := GetRedis().Get(c.IP())
 
-	// check if IP is less than 1 in length and or there is an error
+	// check if IP is less than 1 in length
 	if len(ip) < 1 {
 		GetRedis().Set(c.IP(), []byte(c.IP()), 1*time.Minute)
 	} else {
