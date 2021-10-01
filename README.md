@@ -13,7 +13,8 @@
 ```bash
 ?json - Send JSON with data instead of SVG
 ?label - Set label text
-?bg - Set the background colour of the hits
+?bgLeft - Set the background colour of the label
+?bgRight - Set the background colour of the hits number
 ?color - Set the text color
 ?border - Choose a border (square or round)
 ?font - Set the font family (supports any font from Google Fonts)

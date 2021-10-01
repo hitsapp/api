@@ -28,10 +28,10 @@ func GetHits(c *fiber.Ctx) error {
 	var url = c.Query("url")
 	var json, _ = strconv.ParseBool(c.Query("json"))
 	var colorQuery = c.Query("color")
-	var bgColorQuery = c.Query("bg")
+	var leftBgColorQuery = c.Query("bgLeft")
+	var rightBgColorQuery = c.Query("bgRight")
 	var borderQuery = c.Query("border")
 	var labelQuery = c.Query("label")
-	var fontQuery = c.Query("font")
 	var client = utils.GetPrisma()
 	var ctx = context.Background()
 	const regex = `https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)`
@@ -50,8 +50,12 @@ func GetHits(c *fiber.Ctx) error {
 		})
 	}
 
-	if bgColorQuery == fmt.Sprint(0) {
-		bgColorQuery = "97ca00"
+	if rightBgColorQuery == fmt.Sprint(0) {
+		rightBgColorQuery = "2f3136"
+	} 
+	
+	if leftBgColorQuery == fmt.Sprint(0) {
+		leftBgColorQuery = "202225"
 	}
 
 	ip, _ := GetRedis().Get(url + c.IP())
@@ -98,7 +102,7 @@ func GetHits(c *fiber.Ctx) error {
 		})
 	}
 
-	svg := GenerateBadge(trimQuotes(labelQuery), strconv.Itoa(hit.Hits), editText(colorQuery), editText(bgColorQuery), trimQuotes(borderQuery), trimQuotes(fontQuery))
+	svg := GenerateBadge(trimQuotes(labelQuery), strconv.Itoa(hit.Hits), editText(colorQuery), editText(leftBgColorQuery), editText(rightBgColorQuery), trimQuotes(borderQuery))
 	c.Set(fiber.HeaderContentType, "image/svg+xml;charset=utf-8")
 	c.Set(fiber.HeaderCacheControl, "max-age=0, s-maxage=0, must-revalidate, no-cache, no-store")
 	return c.Send(svg)
