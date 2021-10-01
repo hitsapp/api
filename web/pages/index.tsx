@@ -2,6 +2,9 @@ import type { NextPage } from "next";
 import { CopyButton, Leaderboard, Nav, Subtitle, Title } from "../components";
 import styled from "styled-components";
 import { useState } from "react";
+import { IoMdClose } from "react-icons/io";
+import { motion, AnimatePresence } from "framer-motion";
+import { WEBSITE_REGEX } from "../utils";
 
 const Container = styled.div`
   width: 80%;
@@ -90,8 +93,34 @@ const InputContainer = styled.div`
   max-width: 80%;
 `;
 
+const IconContainer = styled(motion.div)`
+  align-self: center;
+  margin-top: 12px;
+`;
+
+const X = styled(IoMdClose)`
+  color: ${({ theme }) => theme.error};
+`;
+
+const validationAnimations = {
+  initial: {
+    opacity: 0,
+    x: -30,
+  },
+  active: {
+    opacity: 1,
+    x: -40,
+  },
+  exit: {
+    opacity: 0,
+    x: -30,
+  },
+};
+
 const Home: NextPage = () => {
   const [URL, setURL] = useState("");
+
+  console.log(WEBSITE_REGEX.test(URL));
 
   return (
     <Container>
@@ -103,11 +132,26 @@ const Home: NextPage = () => {
             <Title>Create a Hit</Title>
             <Subtitle>Generate a SVG Image for your link</Subtitle>
             <br />
-            <Input
-              style={{ maxWidth: 300 }}
-              placeholder="Enter your URL"
-              onChange={(e) => setURL(e.target.value)}
-            />
+            <InputContainer>
+              <Input
+                style={{ maxWidth: 300, margin: "10px 0 0 0" }}
+                placeholder="Enter your URL"
+                onChange={(e) => setURL(e.target.value)}
+              />
+              <AnimatePresence>
+                {URL.length > 0 && !WEBSITE_REGEX.test(URL) && (
+                  <IconContainer
+                    transition={{ duration: 0.2 }}
+                    initial={"initial"}
+                    animate={"active"}
+                    exit={"exit"}
+                    variants={validationAnimations}
+                  >
+                    <X size={35} />
+                  </IconContainer>
+                )}
+              </AnimatePresence>
+            </InputContainer>
           </RightFlexContainers>
           <RightFlexContainers>
             <Title>Copy URL</Title>
