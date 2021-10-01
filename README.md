@@ -1,5 +1,5 @@
 # [hits.link](https://hits.link) - the better hits counter
-![Hits](https://hits.link/hits?url=https://github.com/heybereket/hits&bg=292B2F)
+![Hits](https://hits.link/hits?url=https://github.com/heybereket/hits&bgRight=292B2F)
 
 ## API Docs
 
@@ -17,7 +17,6 @@
 ?bgRight - Set the background colour of the hits number
 ?color - Set the text color
 ?border - Choose a border (square or round)
-?font - Set the font family (supports any font from Google Fonts)
 ```
 
 **Get Top Hits:** <br />
