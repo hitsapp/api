@@ -51,11 +51,11 @@ func GetHits(c *fiber.Ctx) error {
 	}
 
 	if rightBgColorQuery == fmt.Sprint(0) {
-		rightBgColorQuery = "#2f3136"
+		rightBgColorQuery = "2f3136"
 	} 
 	
 	if leftBgColorQuery == fmt.Sprint(0) {
-		leftBgColorQuery = "#555"
+		leftBgColorQuery = "555"
 	}
 
 	ip, _ := GetRedis().Get(url + c.IP())
