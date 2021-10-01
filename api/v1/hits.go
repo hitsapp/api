@@ -54,11 +54,11 @@ func GetHits(c *fiber.Ctx) error {
 		bgColorQuery = "97ca00"
 	}
 
-	ip, _ := GetRedis().Get(c.IP())
+	ip, _ := GetRedis().Get("unique " + c.IP())
 
 	// check if IP is less than 1 in length
 	if len(ip) < 1 {
-		GetRedis().Set(c.IP(), []byte(c.IP()), 1*time.Minute)
+		GetRedis().Set("unique "+c.IP(), []byte(c.IP()), 1*time.Minute)
 	} else {
 		incrementValue = 0
 	}
