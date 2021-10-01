@@ -1,13 +1,26 @@
 package utils
 
 import (
-	"github.com/gofiber/storage/redis"
 	"os"
+
+	"github.com/gofiber/storage/redis"
 )
 
+var redisdb *redis.Storage
+
+func SetRedis() {
+	if redisdb == nil {
+		redisdb = redis.New(redis.Config{
+			URL:   os.Getenv("REDIS_URI"),
+			Reset: false,
+		})
+	}
+}
+
 func GetRedis() *redis.Storage {
-	return redis.New(redis.Config{
-		URL:   os.Getenv("REDIS_URI"),
-		Reset: false,
-	})
+	if redisdb == nil {
+		SetRedis()
+	}
+
+	return redisdb
 }
