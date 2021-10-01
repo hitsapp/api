@@ -65,6 +65,8 @@ func GenerateBadge(label, count, color, backgroundColor, border, font string) (b
 
 	if !IsUpper(font) {
 		font = strings.Title(strings.ToLower(font))
+	} else if font == "" {
+		font = "Inter"
 	}
 
 	_, _ = tmpl.ExecuteFunc(buf, func(w io.Writer, tag string) (int, error) {
