@@ -4,8 +4,8 @@ import styled from "styled-components";
 
 const Btn = styled.button`
   position: relative;
-  top: -6px;
-  right: 50px;
+  top: -7.5px;
+  right: 41px;
   padding: 10px 20px;
   font-size: 0.9em;
   border: none;
