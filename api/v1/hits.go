@@ -50,11 +50,11 @@ func GetHits(c *fiber.Ctx) error {
 		})
 	}
 
-	if rightBgColorQuery == fmt.Sprint(0) {
+	if rightBgColorQuery == "" {
 		rightBgColorQuery = "2f3136"
 	} 
 	
-	if leftBgColorQuery == fmt.Sprint(0) {
+	if leftBgColorQuery == "" {
 		leftBgColorQuery = "555"
 	}
 
