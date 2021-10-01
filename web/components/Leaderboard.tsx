@@ -92,16 +92,20 @@ const Link = styled.a`
 export const Leaderboard = () => {
   const { hits, isError, isLoading } = useLeaderboard();
   const metadata = (url: string) => {
-    const formattedURL = new URL(url);
+    try {
+      const formattedURL = new URL(url);
 
-    if (
-      formattedURL.hostname === "github.com" &&
-      formattedURL.pathname.length > 1 &&
-      url.substr(8).split("/").length - 1 < 2
-    )
-      return `https://github.com${formattedURL.pathname}.png`;
+      if (
+        formattedURL.hostname === "github.com" &&
+        formattedURL.pathname.length > 1 &&
+        url.substr(8).split("/").length - 1 < 2
+      )
+        return `https://github.com${formattedURL.pathname}.png`;
 
-    return `https://api.faviconkit.com/${formattedURL.hostname}/40`;
+      return `https://api.faviconkit.com/${formattedURL.hostname}/40`;
+    } catch (err) {
+      return "https://api.faviconkit.com/PFP_ERROR_HAPPENED/40";
+    }
   };
 
   return (
