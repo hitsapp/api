@@ -17,7 +17,6 @@
 ?bgRight - Set the background colour of the hits number
 ?color - Set the text color
 ?border - Choose a border (square or round)
-?font - Set the font family (supports any font from Google Fonts)
 ```
 
 **Get Top Hits:** <br />
