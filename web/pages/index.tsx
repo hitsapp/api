@@ -120,8 +120,6 @@ const validationAnimations = {
 const Home: NextPage = () => {
   const [URL, setURL] = useState("");
 
-  console.log(WEBSITE_REGEX.test(URL));
-
   return (
     <Container>
       <Nav />
