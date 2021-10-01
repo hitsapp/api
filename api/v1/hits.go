@@ -57,13 +57,11 @@ func GetHits(c *fiber.Ctx) error {
 
 	urlQuery = u.Scheme + "://" + u.Host + u.Path
 
-	println(urlQuery)
-
-	if rightBgColorQuery == fmt.Sprint(0) {
+	if rightBgColorQuery == "" {
 		rightBgColorQuery = "2f3136"
-	}
-
-	if leftBgColorQuery == fmt.Sprint(0) {
+	} 
+	
+	if leftBgColorQuery == "" {
 		leftBgColorQuery = "555"
 	}
 
