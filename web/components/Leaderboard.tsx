@@ -1,6 +1,6 @@
 import { useLeaderboard } from "../hooks/useLeaderboard";
 import styled from "styled-components";
-import { Subtitle, Title } from ".";
+import { Subtitle, Title, WebsiteIcon } from ".";
 import Skeleton from "react-loading-skeleton";
 import Image from "next/image";
 
@@ -96,7 +96,8 @@ export const Leaderboard = () => {
 
     if (
       formattedURL.hostname === "github.com" &&
-      formattedURL.pathname.length > 1
+      formattedURL.pathname.length > 1 &&
+      url.substr(8).split("/").length - 1 < 2
     )
       return `https://github.com${formattedURL.pathname}.png`;
 
@@ -146,16 +147,15 @@ export const Leaderboard = () => {
                 <Place>{i + 1}</Place>
                 <Hit>
                   <HitIcon>
-                    <HitImage
+                    <WebsiteIcon
                       src={metadata(hit.url)}
                       alt={hit.url}
-                      height="40"
-                      width="40"
+                      size={40}
                     />
                   </HitIcon>
                   <ListItemInfo>
                     <Link href={hit.url} target="_blank">
-                      {hit.url}
+                      {hit.url.substr(8)}
                     </Link>
                     <HitCountSpan>
                       {hit.hits} <HitSpan>hits</HitSpan>

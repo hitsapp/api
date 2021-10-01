@@ -18,7 +18,7 @@ jobs:
 
       - name: Prisma
         working-directory: ./api/prisma
-        run: sudo go install github.com/prisma/prisma-client-go && sudo go run github.com/prisma/prisma-client-go migrate deploy
+        run: sudo go run github.com/prisma/prisma-client-go db push
 
       - name: Install the dependencies
         working-directory: ./api
