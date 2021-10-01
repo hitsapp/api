@@ -1,17 +1,18 @@
 package main
 
 import (
-	"github.com/gofiber/fiber/v2"
-	"github.com/gofiber/fiber/v2/middleware/cors"
-	"github.com/gofiber/fiber/v2/middleware/logger"
-	"github.com/gofiber/fiber/v2/middleware/recover"
-	"github.com/joho/godotenv"
 	"hits/api/prisma/db"
 	"hits/api/utils"
 	. "hits/api/utils"
 	. "hits/api/v1"
 	"log"
 	"os"
+
+	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/cors"
+	"github.com/gofiber/fiber/v2/middleware/logger"
+	"github.com/gofiber/fiber/v2/middleware/recover"
+	"github.com/joho/godotenv"
 )
 
 func setupRoutes(app *fiber.App) {
@@ -37,7 +38,7 @@ func main() {
 		ServerHeader:  "Hits API",
 		AppName:       "Hits API v1.0",
 		BodyLimit:     1024 * 1024,
-		GETOnly: true,
+		GETOnly:       true,
 	})
 
 	app.Use(logger.New(logger.Config{
@@ -61,11 +62,6 @@ func main() {
 
 	if err := utils.GetPrisma().Prisma.Connect(); err != nil {
 		panic(err)
-	}
-	// i did
-
-	if utils.GetRedisDB() == nil {
-		utils.SetRedisDB()
 	}
 
 	defer func() {
