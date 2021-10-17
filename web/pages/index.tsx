@@ -134,7 +134,7 @@ const Home: NextPage = () => {
               <Input
                 style={{ maxWidth: 300, margin: "10px 0 0 0" }}
                 placeholder="Enter your URL"
-                onChange={(e) => setURL(e.target.value)}
+                onChange={(e) => setURL(encodeURIComponent(e.target.value))}
               />
               <AnimatePresence>
                 {URL.length > 0 && !WEBSITE_REGEX.test(URL) && (
