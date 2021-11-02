@@ -8,11 +8,14 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
     background: ${({ theme }) => theme.layoutDarkest};
     color: ${({ theme }) => theme.textLightest};
     font-family: 'Inter', sans-serif;
     font-weight: 500;
+  }
+  
+  *, *:before, *:after {
+    box-sizing: border-box;
   }
 
   ::-webkit-scrollbar {
