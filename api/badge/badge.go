@@ -59,6 +59,8 @@ func GenerateBadge(label, count, color, leftBgColor, rightBgColor, border string
 			return buf.WriteString(leftBgColor)
 		case "rightBgColor":
 			return buf.WriteString(rightBgColor)
+		case "rectWidth":
+			return buf.WriteString(rectWidth)
 		case "border": 
 			return buf.WriteString(border)
 		}
