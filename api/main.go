@@ -39,7 +39,7 @@ func main() {
 		AppName:       "Hits API v1.0",
 		BodyLimit:     1024 * 1024,
 		GETOnly:       true,
-		ProxyHeader:   "X-Real-Ip",
+		ProxyHeader:   "x-forwarded-for",
 	})
 
 	app.Use(logger.New(logger.Config{
