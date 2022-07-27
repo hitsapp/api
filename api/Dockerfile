@@ -1,5 +1,6 @@
 FROM golang:1.16-buster as uwu
 ARG DATABASE_URL
+ENV DATABASE_URL=${DATABASE_URL}
 
 RUN mkdir /app
 WORKDIR /app

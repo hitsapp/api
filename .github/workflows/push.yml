@@ -1,5 +1,7 @@
 name: Build and push image
 
+env:
+  DATABASE_URL: ${{secrets.DATABASE_URL}}
 on:
   push:
     branches: ["main"]
