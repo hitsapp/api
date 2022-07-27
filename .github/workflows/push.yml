@@ -26,5 +26,5 @@ jobs:
       -
         name: Build and push
         run: |-
-          docker build --tag registry.hop.io/hits/api . --platform=linux/amd64
+          docker build --tag registry.hop.io/hits/api ./api --platform=linux/amd64
           docker push registry.hop.io/hits/api
