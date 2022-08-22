@@ -21,13 +21,13 @@ var badgeSVG = utils.Trim(`
 		<rect width="100" height="20" rx="{{border}}" fill="#fff"/>
 	</clipPath>
 	<g clip-path="url(#r)">
-		<rect width="69" height="20" fill="{{leftBgColor}}"/>
-		<rect x="69" width="31" height="20" fill="{{rightBgColor}}"/>
+		<rect width="38" height="20" fill="{{leftBgColor}}"/>
+		<rect x="38" width="62" height="20" fill="{{rightBgColor}}"/>
 		<rect width="{{rectWidth}}" height="20" fill="url(#s)"/>
 	</g>
 	<g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif" font-size="110">
-		<text x="355" y="140" transform="scale(.1)" fill="{{color}}">{{label}}</text>
-		<text x="835" y="140" transform="scale(.1)" fill="{{color}}">{{count}}</text>
+		<text x="195" y="140" transform="scale(.1)" fill="{{color}}">{{label}}</text>
+		<text x="695" y="140" transform="scale(.1)" fill="{{color}}">{{count}}</text>
 	</g>
 </svg>
 `)
