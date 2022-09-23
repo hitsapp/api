@@ -10,6 +10,8 @@ var redisdb *redis.Storage
 
 func SetRedis() {
 	if redisdb == nil {
+		println("REDIS URI", os.Getenv("REDIS_URI"))
+
 		redisdb = redis.New(redis.Config{
 			URL:   os.Getenv("REDIS_URI"),
 			Reset: false,
