@@ -1,3 +1,10 @@
+# UPDATE:
+This project has been sunsetted, due to the fact the domain renewal price was $180 and thats a lot of money gangy. If anyone wants to pitch in, to get it back up and running DM me or bereket, buttt for now its sunsetted.
+
+Its been a good run ❤️ thank you for all the support and love!!!
+
+~ Bereket & Cody
+
 # [hits.link](https://hits.link) - the better hits counter
 ![Hits](https://hits.link/hits?url=https://github.com/heybereket/hits&bgRight=292B2F)
 
