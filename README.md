@@ -1,9 +1,15 @@
 # UPDATE:
-This project has been sunsetted, due to the fact the domain renewal price was $180 and thats a lot of money gangy. If anyone wants to pitch in, to get it back up and running DM me or bereket, buttt for now its sunsetted.
+The renewal price for hits.link was very expensive, so we decided to drop the domain. If you'd like to continue using hits please update your URLs to `https://hits-app.vercel.app/hits?url=https://yoururl.com/`
 
-Its been a good run ❤️ thank you for all the support and love!!!
 
-~ Bereket & Cody
+```diff
+- https://hits.link/hits?url=https://yoururl.com/
++ https://hits-app.vercel.app/hits?url=https://yoururl.com/
+```
+
+Frontend: `https://hits-app.vercel.app`
+
+API: `https://hits.hop.sh/`
 
 # [hits](https://hits-app.vercel.app) - the better hits counter
 ![Hits](https://hits-app.vercel.app/hits?url=https://github.com/heybereket/hits&bgRight=292B2F)
