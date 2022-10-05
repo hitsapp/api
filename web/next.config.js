@@ -8,7 +8,7 @@ module.exports = withBundleAnalyzer({
   poweredByHeader: false,
   reactStrictMode: true,
   images: {
-    domains: ["localhost", "www.hits.link", "api.faviconkit.com", "github.com"],
+    domains: ["localhost", "www.hits.link", "api.faviconkit.com", "github.com", "https://hits.hop.sh"],
   },
   headers() {
     return [
@@ -53,7 +53,7 @@ module.exports = withBundleAnalyzer({
       },
       {
         source: "/hits",
-        destination: "https://api.hits.link/v1/hits",
+        destination: "https://hits.hop.sh/v1/hits",
         permanent: true,
       },
     ];
