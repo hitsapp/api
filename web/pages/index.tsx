@@ -165,7 +165,7 @@ const Home: NextPage = () => {
                 value={`<img src="${
                   process.env.NODE_ENV === "development"
                     ? "localhost:3000"
-                    : "https://hits.link"
+                    : "https://hits-app.vercel.app"
                 }/hits?url=${URL}" />`}
                 disabled={true}
               />
@@ -173,7 +173,7 @@ const Home: NextPage = () => {
                 text={`<img src="${
                   process.env.NODE_ENV === "development"
                     ? "localhost:3000"
-                    : "https://hits.link"
+                    : "https://hits-app.vercel.app"
                 }/hits?url=${URL}" />`}
               />
             </InputContainer>
@@ -187,7 +187,7 @@ const Home: NextPage = () => {
                 value={`![Hits](${
                   process.env.NODE_ENV === "development"
                     ? "localhost:3000"
-                    : "https://hits.link"
+                    : "https://hits-app.vercel.app"
                 }/hits?url=${URL})`}
                 disabled={true}
               />
@@ -195,7 +195,7 @@ const Home: NextPage = () => {
                 text={`![Hits](${
                   process.env.NODE_ENV === "development"
                     ? "localhost:3000"
-                    : "https://hits.link"
+                    : "https://hits-app.vercel.app"
                 }/hits?url=${URL})`}
               />
             </InputContainer>
