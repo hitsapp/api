@@ -5,13 +5,13 @@ Its been a good run ❤️ thank you for all the support and love!!!
 
 ~ Bereket & Cody
 
-# [hits.link](https://hits.link) - the better hits counter
-![Hits](https://hits.link/hits?url=https://github.com/heybereket/hits&bgRight=292B2F)
+# [hits](https://hits-app.vercel.app) - the better hits counter
+![Hits](https://hits-app.vercel.app/hits?url=https://github.com/heybereket/hits&bgRight=292B2F)
 
 ## API Docs
 
 **Create a new Hit:** <br />
-`GET https://hits.link/hits?url=https://yoururl.com (20reqs/minute)`
+`GET https://hits-app.vercel.app/hits?url=https://yoururl.com (20reqs/minute)`
 
 **Query Params:**
 > Valid hex color codes are accepted (remove "#" in the queries that apply) <br />
@@ -27,7 +27,7 @@ Its been a good run ❤️ thank you for all the support and love!!!
 ```
 
 **Get Top Hits:** <br />
-`GET https://api.hits.link/v1/top (30s cache, 50reqs/minute)`
+`GET https://hits.hop.sh/v1/top (30s cache, 50reqs/minute)`
 
 ## Used on
 **Open a PR to add your website!**
