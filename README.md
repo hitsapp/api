@@ -41,6 +41,7 @@ API: `https://hits.hop.sh/`
 - https://github.com/alii
 - https://github.com/heybereket
 - https://github.com/cnrad
+- https://github.com/walkator
 
 
 ## Running Locally
