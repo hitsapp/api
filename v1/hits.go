@@ -60,10 +60,10 @@ func Hits(c *fiber.Ctx) error {
 		label = "hits"
 	}
 
-	ip := utils.GetKey(c.IP())
+	ip := utils.GetKey(url + ":" + c.IP())
 	if ip == "" {
 		utils.IncrementHit(url)
-		utils.AddKey(c.IP(), "1", 30)
+		utils.AddKey(url+":"+c.IP(), "1", 30)
 	}
 
 	urlHits := utils.GetHit(url)
