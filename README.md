@@ -1,10 +1,6 @@
 # UPDATE:
 The renewal price for hits.link was very expensive, so we decided to drop the domain. If you'd like to continue using hits please update your URLs to `https://hits-app.vercel.app/hits?url=https://yoururl.com/`
 
-# Sponsored By
-Hits is brought to you by [Hop](https://hop.io/) - No more configs. No more fuss. Just push your code.
-
-
 ```diff
 - https://hits.link/hits?url=https://yoururl.com/
 + https://hits-app.vercel.app/hits?url=https://yoururl.com/
@@ -16,6 +12,11 @@ API: `https://hits.hop.sh/`
 
 # [hits](https://hits-app.vercel.app) - the better hits counter
 ![Hits](https://hits-app.vercel.app/hits?url=https://github.com/heybereket/hits&bgRight=292B2F)
+
+
+# Sponsored By
+Hits is brought to you by [Hop](https://hop.io/) - No more configs. No more fuss. Just push your code.
+
 
 ## API Docs
 
