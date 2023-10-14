@@ -22,7 +22,7 @@ func Hits(c *fiber.Ctx) error {
 
 	var wantsJSON = string(c.Request().Header.Peek("Accept")) == "application/json"
 
-	if !strings.HasPrefix(url, "http://") || !strings.HasPrefix(url, "https://") {
+	if !strings.HasPrefix(url, "http://") && !strings.HasPrefix(url, "https://") {
 		url = "https://" + url
 	}
 
