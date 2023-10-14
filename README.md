@@ -1,6 +1,9 @@
 # UPDATE:
 The renewal price for hits.link was very expensive, so we decided to drop the domain. If you'd like to continue using hits please update your URLs to `https://hits-app.vercel.app/hits?url=https://yoururl.com/`
 
+# Sponsored By
+Hits is brought to you by [Hop](https://hop.io/) - No more configs. No more fuss. Just push your code.
+
 
 ```diff
 - https://hits.link/hits?url=https://yoururl.com/
@@ -33,7 +36,7 @@ API: `https://hits.hop.sh/`
 ```
 
 **Get Top Hits:** <br />
-`GET https://hits.hop.sh/v1/top (30s cache, 50reqs/minute)`
+`GET https://hits.hop.sh/v1/leaderboard (30s cache, 50reqs/minute)`
 
 ## Used on
 **Open a PR to add your website!**
@@ -46,35 +49,20 @@ API: `https://hits.hop.sh/`
 
 ## Running Locally
 ```bash
-# Copy all .env.example files into your .env file
-
 # Run Docker Compose 
 $ docker-compose up -d
 
-# Sync Database
-$ cd api/prisma && go run github.com/prisma/prisma-client-go db push
+# Install packages
+$ go get
 
-# Start Go API
-$ cd api && go run main.go
+# Start API
+$ go run main.go
 
-# Install dependencies
-$ cd web && yarn
-
-# Run web
-$ cd web && yarn dev
 ```
 
-## Stack
-```bash
-Frontend:
-- Next.js
-- TypeScript
-
-Backend:
-- Go
-- Fiber
-- Prisma
-```
+## Frontend
+The frontend has been moved to a separate repository:
+[https://github.com/hitsapp/web](https://github.com/hitsapp/web)
 
 ## Maintainers
 - @heybereket

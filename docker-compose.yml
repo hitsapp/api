@@ -1,16 +1,6 @@
 version: "3.9"
 
 services:
-  mysql:
-    image: mysql/mysql-server:8.0.23
-    environment:
-      MYSQL_ROOT_PASSWORD: "hits"
-      MYSQL_DATABASE: "hitsdb"
-      MYSQL_USER: "hits"
-      MYSQL_PASSWORD: "hits"
-      MYSQL_ROOT_HOST: "%"
-    ports:
-      - "3306:3306"
   redis:
     image: redis
     ports:
