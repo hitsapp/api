@@ -14,9 +14,6 @@ func RateLimit(amount int) fiber.Handler {
 		},
 		Max:        amount,
 		Expiration: 1 * time.Minute,
-		KeyGenerator: func(c *fiber.Ctx) string {
-			return c.IP()
-		},
 		LimitReached: func(c *fiber.Ctx) error {
 			return c.Status(429).JSON(Response[*any]{
 				Success: false,
