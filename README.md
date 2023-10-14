@@ -1,6 +1,9 @@
 # UPDATE:
 The renewal price for hits.link was very expensive, so we decided to drop the domain. If you'd like to continue using hits please update your URLs to `https://hits-app.vercel.app/hits?url=https://yoururl.com/`
 
+# Sponsored By
+Hits is brought to you by [Hop](https://hop.io/) - No more configs. No more fuss. Just push your code.
+
 
 ```diff
 - https://hits.link/hits?url=https://yoururl.com/
