@@ -20,8 +20,6 @@ func Hits(c *fiber.Ctx) error {
 	var border = c.Query("border")
 	var label = c.Query("label")
 
-	println(c.Request().Header.String())
-
 	var wantsJSON = string(c.Request().Header.Peek("Accept")) == "application/json"
 
 	if !strings.HasPrefix(url, "http://") && !strings.HasPrefix(url, "https://") {
@@ -62,11 +60,8 @@ func Hits(c *fiber.Ctx) error {
 		label = "hits"
 	}
 
-	ip := utils.GetKey(url + ":" + c.IP())
-	if ip == "" {
-		utils.IncrementHit(url)
-		utils.AddKey(url+":"+c.IP(), "1", 30)
-	}
+	// Theres no way to check if a user has already visited the URL since the only IP returned to us is the website's URL, so unfort this can be abused :/, if you're abusing this though, get a life, how many followers or views you have doesn't matter and you're not cool for abusing it.
+	utils.IncrementHit(url)
 
 	urlHits := utils.GetHit(url)
 	if urlHits == 0 {
