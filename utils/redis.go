@@ -37,7 +37,7 @@ func GetHit(url string) float64 {
 }
 
 func GetHits(limit int64) []redis.Z {
-	return RedisClient.ZRevRangeWithScores(context.Background(), "hits", 0, limit).Val()
+	return RedisClient.ZRevRangeWithScores(context.Background(), "hits", 0, limit-1).Val()
 }
 
 func AddHit(url string) {
