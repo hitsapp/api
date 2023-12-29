@@ -11,7 +11,9 @@ import (
 var RedisClient *redis.Client
 
 func ConnectRedis() {
-	time.Sleep(1 * time.Second)
+	println("Attempting to connect to redis in 2 seconds")
+	time.Sleep(2 * time.Second)
+	println("Attempting to connect to redis")
 	RedisClient = redis.NewClient(&redis.Options{
 		Addr:     os.Getenv("REDIS_URL"),
 		Password: os.Getenv("REDIS_PASSWORD"),
