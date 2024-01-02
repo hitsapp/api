@@ -3,6 +3,7 @@ package utils
 import (
 	"context"
 	"os"
+	"strings"
 	"time"
 
 	"github.com/redis/go-redis/v9"
@@ -31,6 +32,7 @@ func GetKey(key string) string {
 }
 
 func AddKey(key string, value string, expiration int) {
+	value = strings.ReplaceAll(value, "'", "")
 	RedisClient.Set(context.Background(), key, value, 0).Val()
 	RedisClient.Expire(context.Background(), key, time.Duration(time.Second*time.Duration(expiration))).Val()
 }
