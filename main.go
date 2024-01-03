@@ -10,6 +10,8 @@ import (
 	"github.com/gofiber/fiber/v2/middleware/recover"
 	"github.com/hitsapp/api/utils"
 	v1 "github.com/hitsapp/api/v1"
+	_ "github.com/joho/godotenv/autoload"
+	"github.com/robfig/cron/v3"
 )
 
 func main() {
@@ -40,6 +42,12 @@ func main() {
 	v1Group := app.Group("/v1")
 	v1Group.Get("/leaderboard", utils.RateLimit(50), v1.Leaderboard)
 	v1Group.Get("/hits", utils.RateLimit(1200), v1.Hits)
+
+	cron := cron.New(cron.WithLogger(cron.DefaultLogger))
+	cron.AddFunc("@daily", func() {
+		utils.Backup()
+	})
+	cron.Start()
 
 	log.Fatal(app.Listen(":8080"))
 }
