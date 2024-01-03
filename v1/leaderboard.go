@@ -11,7 +11,7 @@ func Leaderboard(c *fiber.Ctx) error {
 	var parsedLeaderboard []utils.Leaderboard
 	for _, v := range leaderboard {
 		parsedLeaderboard = append(parsedLeaderboard, utils.Leaderboard{
-			URL:  v.Member.(string),
+			URL:  v.Member,
 			Hits: int(v.Score),
 		})
 	}
