@@ -1,3 +1,14 @@
+# UPDATE #2:
+Bad news, I have archived this project due to time and money running it. _**Good news**_, AprilNEA has made an alternative that's a drop-in replacement to hits! If you would like to support and use their's, visit https://github.com/AprilNEA/hits.
+
+```diff
+- https://hits-app.vercel.app/hits?url=https://yoururl.com/
++ https://hits.aprilnea.com/hits?url=https://yoururl.com/
+```
+
+> [!NOTE]
+> I do not own nor have control over AprilNEA's websites, domains, or repositories!!
+
 # UPDATE:
 The renewal price for hits.link was very expensive, so we decided to drop the domain. If you'd like to continue using hits please update your URLs to `https://hits-app.vercel.app/hits?url=https://yoururl.com/`
 
